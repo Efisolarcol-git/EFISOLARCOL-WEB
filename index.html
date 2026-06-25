@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFISOLAR | Energía Solar y Eficiencia Energética</title>
+    
+    <!-- Icono de la pestaña (Favicon) -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    
+    <style>
+        /* --- VARIABLES DE MARCA ESTÉTICA NATURAL --- */
+        :root {
+            --primary: #f39c12;    /* Amarillo Solar */
+            --nature-green: #27ae60; /* Verde Hoja Orgánico */
+            --dark-green: #1e4620;   /* Verde Bosque Profundo */
+            --light-bg: #f9fbf9;     /* Blanco Ecológico Suave */
+            --text-dark: #2c3e50;    /* Gris Carbón Suave */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN NATURAL --- */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2ebd5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: var(--nature-green);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: block;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: white;
+            padding: 2px;
+            border: 1px solid #e2ebd5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--nature-green);
+        }
+
+        /* --- SECCIÓN HERO CON PANELES SOLARES MODERNOS --- */
+        .hero {
+            background: linear-gradient(rgba(249, 251, 249, 0.85), rgba(249, 251, 249, 0.9)), 
+                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200') no-repeat center center/cover;
+            color: var(--text-dark);
+            padding: 130px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e2ebd5;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--nature-green);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            color: #57606f;
+        }
+
+        /* Botón de WhatsApp Orgánico */
+        .btn-whatsapp {
+            display: inline-block;
+            padding: 16px 40px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.2s, box-shadow 0.3s, background-color 0.3s;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebd56;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- SECCIÓN SERVICIOS --- */
+        .services {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.2rem;
+            margin-bottom: 45px;
+            color: var(--dark-green);
+            position: relative;
+        }
+
+        .services h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--nature-green);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f0f4eb;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(39, 174, 96, 0.08);
+            border-color: #d2e4bc;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-green);
+        }
+
+        .service-card p {
+            color: #626d7a;
+            margin-bottom: 30px;
+            font-size: 0.98rem;
+        }
+
+        .btn-card {
+            background-color: #f0f7f4;
+            color: var(--nature-green);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 25px;
+            transition: 0.3s;
+            border: 1px solid #dceff2;
+        }
+
+        .service-card:hover .btn-card {
+            background-color: var(--nature-green);
+            color: white;
+            border-color: var(--nature-green);
+        }
+
+        /* --- SECCIÓN COTIZADOR --- */
+        .calculator-section {
+            background-color: #f0f5f1;
+            padding: 80px 20px;
+            border-top: 1px solid #e1ebd5;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid #e2ebd5;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+
+        .form-container p {
+            text-align: center;
+            color: #626d7a;
+            margin-bottom: 34px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #fafbfc;
+            color: #1e272e;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 10px;
+            background-color: var(--nature-green);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1e3322;
+            color: #cbd7cc;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+        <div class="logo-area">
+            <!-- Sistema Inteligente de Autocarga del Logo -->
+            <img src="logo.jpg" 
+                 alt="Logo EFISOLAR" 
+                 class="logo-img" 
+                 onerror="this.onerror=null; this.src='logo.png'; this.addEventListener('error', function(){ this.src='https://efisolarcol.com/logo.jpg'; });">
+            
+            <div class="logo-text">EFISOLAR<span>Energía Solar | Eficiencia Energética</span></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Soluciones</a></li>
+            <li><a href="#cotizar">Simulador</a></li>
+        </ul>
+    </nav>
+
+    <!-- HÉROE PRINCIPAL CON ENLACE DE WHATSAPP ACTUALIZADO -->
+    <header class="hero" id="inicio">
+        <h1>Genere su propia energía de forma <span>sostenible</span></h1>
+        <p>Diseñamos soluciones fotovoltaicas eficientes alineadas con el cuidado ambiental y la transición energética legal en Colombia.</p>
+        
+        <!-- Hipervínculo directo al número corporativo 3021254480 -->
+        <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20solar." target="_blank" class="btn-whatsapp">
+            Cotiza con nosotros
+        </a>
+    </header>
+
+    <!-- SECCIÓN DE SERVICIOS -->
+    <section class="services" id="servicios">
+        <h2>Transición Energética a su Medida</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div>
+                    <h3>Hogares Ecológicos</h3>
+                    <p>Transforme su casa en una fuente de energía limpia. Disminuya el impacto ambiental de su consumo diario.</p>
+                </div>
+                <a href="residencial.html" class="btn-card">Explorar Línea Hogar</a>
+            </div>
+            <div class="service-card">
+                <div>
+                    <h3>Empresas Sostenibles</h3>
+                    <p>Eleve los estándares de sostenibilidad de su compañía. Reduzca la huella de carbono industrial de inmediato.</p>
+                </div>
+                <a href="industrial.html" class="btn-card">Explorar Línea Empresa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN COTIZADOR -->
+    <section class="calculator-section" id="cotizar">
+        <div class="form-container">
+            <h2>Estudio Energético Gratuito</h2>
+            <p>Simule al instante el requerimiento estimado de paneles y el porcentaje de beneficio financiero.</p>
+            <form action="resultados.html" method="GET">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo / Empresa:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="celular">Número de Celular:</label>
+                    <input type="tel" id="celular" name="celular" placeholder="Ej. 3001234567" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de Infraestructura:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="Residencial">Residencial (Hogar)</option>
+                        <option value="Industrial">Comercial e Industrial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="factura">Costo Mensual de Energía Actual (COP):</label>
+                    <input type="number" id="factura" name="factura" placeholder="Ej. 350000" min="1000" required>
+                </div>
+                <button type="submit" class="btn-submit">Calcular Mi Ahorro Estimado</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
+    </footer>
+
+</body>
+</html>
