@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energía Solar Residencial | EFISOLAR</title>
+    <style>
+        /* --- ESTILOS GENERALES (Misma identidad de EFISOLAR) --- */
+        :root {
+            --primary: #f39c12; /* Amarillo Solar */
+            --dark: #1e272e;    /* Azul Oscuro */
+            --light: #f5f6fa;   /* Fondo claro */
+            --success: #2ecc71; /* Verde */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        nav {
+            background-color: var(--dark);
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+        .logo-text span { color: var(--primary); font-size: 0.9rem; font-weight: normal; margin-left: 5px; }
+
+        .logo-img {
+            height: 45px; 
+            width: auto;
+            border-radius: 50%; 
+            background-color: white;
+            padding: 2px;
+        }
+
+        /* --- SECCIÓN HERO INTERNA --- */
+        .hero-internal {
+            background: linear-gradient(rgba(30, 39, 46, 0.9), rgba(30, 39, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200') no-repeat center center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-internal h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .hero-internal p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #dcdde1;
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-info { grid-template-columns: 1fr; gap: 25px; }
+            nav { padding: 10px 20px; }
+            .logo-text { font-size: 1rem; }
+        }
+
+        .info-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .info-text h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            margin-top: 8px;
+        }
+
+        .info-text p {
+            margin-bottom: 15px;
+            color: #57606f;
+        }
+
+        /* --- CARACTERÍSTICAS / BENEFICIOS --- */
+        .benefits-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .benefits-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .benefits-list li::before {
+            content: '☀️';
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- TARJETA DE COMPONENTES --- */
+        .components-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .components-box h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* --- BOTONES DE ACCIÓN --- */
+        .action-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #000;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark);
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-text">EFISOLAR<span>| Residencial</span></div>
+        <div class="logo-img-container">
+            <img src="logo_efisolar.jpg" alt="Logo EFISOLAR" class="logo-img">
+        </div>
+    </nav>
+
+    <header class="hero-internal">
+        <h1>Sistemas Solares Residenciales</h1>
+        <p>Transforma el techo de tu hogar en tu propia planta de generación eléctrica. Dile adiós a los incrementos descontrolados en las tarifas de energía.</p>
+    </header>
+
+    <main class="container">
+        <div class="grid-info">
+            <div class="info-text">
+                <h2>Energía Limpia para tu Hogar</h2>
+                <p>En el entorno residencial, el mayor enemigo de la economía familiar suele ser el alto consumo de los sistemas de aire acondicionado y electrodomésticos de uso continuo.</p>
+                <p>Nuestros sistemas integrados a la red (On-Grid) te permiten generar electricidad durante las horas del día, alimentando directamente tus consumos y enviando los excedentes a la red convencional para recibir saldos a favor en tu facturación.</p>
+                
+                <ul class="benefits-list">
+                    <li>Reducción inmediata de hasta el 90% en la factura de luz.</li>
+                    <li>Sistemas duraderos con más de 25 años de vida útil.</li>
+                    <li>Valorización inmediata de tu propiedad o inmueble.</li>
+                    <li>Monitoreo en tiempo real desde tu celular.</li>
+                </ul>
+            </div>
+
+            <div class="components-box">
+                <h3>¿Qué incluye nuestra solución residencial?</h3>
+                <p style="margin-bottom: 15px;">Diseñamos bajo estrictos estándares de ingeniería para asegurar la máxima eficiencia de tu tejado:</p>
+                <p><strong>• Paneles Solares Mono-Perc:</strong> Tecnología de alta eficiencia estructural que capta la mayor radiación incluso en días nublados.</p>
+                <br>
+                <p><strong>• Inversor Inteligente:</strong> El cerebro del sistema, encargado de transformar la corriente directa en energía apta para tus electrodomésticos.</p>
+                <br>
+                <p><strong>• Estructuras de Aluminio Anodizado:</strong> Soportería de alta resistencia diseñada para soportar cargas de viento sin afectar la impermeabilización de tu techo.</p>
+                <br>
+                <p><strong>• Protecciones Eléctricas (Tableros DC/AC):</strong> Sistema de seguridad bajo normativa RETIE para salvaguardar la vida de los tuyos y tus equipos.</p>
+            </div>
+        </div>
+
+        <div class="action-cta">
+            <a href="index.html#cotizar" class="btn btn-primary">Calcular mi Proyecto Ahora</a>
+            <a href="index.html" class="btn btn-secondary">Regresar al Inicio</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EFISOLAR S.A.S. - Ingeniería y Energías Renovables. Cumplimiento RETIE y CREG 174.</p>
+    </footer>
+
+</body>
+</html>
