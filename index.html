@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFISOLAR | Energía Solar y Eficiencia Energética</title>
     
-    <!-- Icono de la pestaña (Favicon) -->
-    <link rel="icon" type="image-oficial.jpg" href="logo-oficial.jpg">
+    <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
     
     <style>
         /* --- VARIABLES DE MARCA ESTÉTICA NATURAL --- */
@@ -16,6 +15,7 @@
             --dark-green: #1e4620;   /* Verde Bosque Profundo */
             --light-bg: #f9fbf9;     /* Blanco Ecológico Suave */
             --text-dark: #2c3e50;    /* Gris Carbón Suave */
+            --white: #ffffff;
         }
 
         * {
@@ -32,10 +32,10 @@
             line-height: 1.6;
         }
 
-        /* --- BARRA DE NAVEGACIÓN NATURAL --- */
+        /* --- BARRA DE NAVEGACIÓN --- */
         nav {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 10px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,7 +50,7 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .logo-text {
@@ -86,7 +86,7 @@
             color: var(--nature-green);
         }
 
-        /* --- SECCIÓN HERO CON PANELES SOLARES MODERNOS --- */
+        /* --- SECCIÓN HERO --- */
         .hero {
             background: linear-gradient(rgba(249, 251, 249, 0.85), rgba(249, 251, 249, 0.9)), 
                         url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200') no-repeat center center/cover;
@@ -114,7 +114,7 @@
             color: #57606f;
         }
 
-        /* Botón de WhatsApp Orgánico */
+        /* Botón de WhatsApp */
         .btn-whatsapp {
             display: inline-block;
             padding: 16px 40px;
@@ -271,10 +271,17 @@
             color: white;
             padding: 14px;
             border: none;
-            border-radius: 8px;
+            border-radius: 30px;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1ebd56;
+            transform: translateY(-2px);
         }
 
         /* --- FOOTER --- */
@@ -294,18 +301,15 @@
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
-<div class="logo-area">
-    <!-- El atributo width nativo fuerza al navegador a reservar el espacio exacto antes del renderizado -->
-    <img src="logo-oficial.jpg" 
-         alt="Logo EFISOLAR" 
-         width="75"
-         style="height: auto; max-width: 75px; object-fit: contain; display: block;"
-         onerror="this.onerror=null; this.src='logo-oficial.jpg';">
-    
-    <div class="logo-oficial.jpg"><span>Energía Solar | Eficiencia Energética</span></div>
-</div>
+        <div class="logo-area">
+            <img src="logo-oficial.jpg" 
+                 alt="Logo EFISOLAR" 
+                 width="75" 
+                 style="height: auto; max-width: 75px; object-fit: contain; display: block;">
+            
+            <div class="logo-oficial.jpg">EFISOLAR <span>Energía Solar | Eficiencia Energética</span></div>
+        </div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Soluciones</a></li>
@@ -313,18 +317,15 @@
         </ul>
     </nav>
 
-    <!-- HÉROE PRINCIPAL CON ENLACE DE WHATSAPP ACTUALIZADO -->
     <header class="hero" id="inicio">
         <h1>Genere su propia energía de forma <span>sostenible</span></h1>
         <p>Diseñamos soluciones fotovoltaicas eficientes alineadas con el cuidado ambiental y la transición energética legal en Colombia.</p>
         
-        <!-- Hipervínculo directo al número corporativo 3021254480 -->
         <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20solar." target="_blank" class="btn-whatsapp">
             Cotiza con nosotros
         </a>
     </header>
 
-    <!-- SECCIÓN DE SERVICIOS -->
     <section class="services" id="servicios">
         <h2>Transición Energética a su Medida</h2>
         <div class="services-grid">
@@ -333,11 +334,11 @@
                     <h3>Hogares Ecológicos</h3>
                     <p>Transforme su casa en una fuente de energía limpia. Disminuya el impacto ambiental de su consumo diario.</p>
                 </div>
-                <a href="residencial.html" class="btn-card">Explorar Línea Recidencial</a>
+                <a href="residencial.html" class="btn-card">Explorar Línea Residencial</a>
             </div>
             <div class="service-card">
                 <div>
-                    <h3>Industria Sostenibles</h3>
+                    <h3>Empresas Sostenibles</h3>
                     <p>Eleve los estándares de sostenibilidad de su compañía. Reduzca la huella de carbono industrial de inmediato.</p>
                 </div>
                 <a href="industrial.html" class="btn-card">Explorar Línea Industrial</a>
@@ -345,20 +346,27 @@
         </div>
     </section>
 
-    <!-- SECCIÓN COTIZADOR -->
     <section class="calculator-section" id="cotizar">
         <div class="form-container">
             <h2>Estudio Energético Gratuito</h2>
-            <p>calcule al instante el requerimiento estimado de paneles y el porcentaje de beneficio financiero.</p>
-            <form action="resultados.html" method="GET">
+            <p>Calcule al instante el requerimiento estimado de paneles y el porcentaje de beneficio financiero.</p>
+            
+            <form action="resultados.html" method="GET" id="formSimulador">
                 <div class="form-group">
                     <label for="nombre">Nombre Completo / Empresa:</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
                 </div>
+                
+                <div class="form-group">
+                    <label for="nit">NIT / Cédula (Opcional):</label>
+                    <input type="text" id="nit" name="nit" placeholder="Ej. 901234567-1">
+                </div>
+
                 <div class="form-group">
                     <label for="celular">Número de Celular:</label>
-                    <input type="tel" id="celular" name="celular" placeholder="Ej. 3001234567" required>
+                    <input type="tel" id="celular" name="celular" placeholder="Ej. 3001234569" required>
                 </div>
+
                 <div class="form-group">
                     <label for="tipo">Tipo de Infraestructura:</label>
                     <select id="tipo" name="tipo" required>
@@ -366,10 +374,12 @@
                         <option value="Industrial">Comercial e Industrial</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="factura">Costo Mensual de Energía Actual (COP):</label>
-                    <input type="number" id="factura" name="factura" placeholder="Ej. 350000" min="1000" required>
+                    <label for="consumo">Consumo de Energía Mensual (kWh por mes):</label>
+                    <input type="number" id="consumo" name="consumo" placeholder="Ej. 350" min="1" required>
                 </div>
+
                 <button type="submit" class="btn-submit">Calcular Mi Ahorro Estimado</button>
             </form>
         </div>
@@ -377,9 +387,26 @@
 
     <footer>
         <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
-        <p>Empresa registrada en camara de comercio</p>
-        <p>certificada por RETIE</p>
     </footer>
+
+    <script>
+        document.getElementById('formSimulador').addEventListener('submit', function(e) {
+            // Detenemos un momento el envío automático para transformar los kWh a costo equivalente 
+            // Esto evita romper las fórmulas de tu archivo resultados.html actual
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const tipo = document.getElementById('tipo').value;
+            const consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
+
+            // En la región Caribe el costo promedio aproximado por kWh ronda los $1.000 COP
+            // Multiplicamos el consumo ingresado para enviarlo como 'factura' equivalente
+            const facturaEquivalente = consumoKWH * 1000;
+
+            // Redirigimos manualmente pasando las variables exactas que resultados.html sabe leer
+            window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
+        });
+    </script>
 
 </body>
 </html>
