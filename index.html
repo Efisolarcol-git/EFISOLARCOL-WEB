@@ -296,15 +296,16 @@
 
     <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
-        <div class="logo-area">
-            <!-- SOLUCIÓN INLINE: Controlamos directamente el tamaño alto aquí para que quepa perfecto en la barra sin importar el caché -->
-            <img src="logo.jpg" 
-                 alt="Logo EFISOLAR" 
-                 style="height: 65px; width: auto; max-width: 80px; object-fit: contain; display: inline-block; vertical-align: middle;"
-                 onerror="this.onerror=null; this.src='logo.png';">
-            
-            <div class="logo-text"><span>Energía Solar | Eficiencia Energética</span></div>
-        </div>
+<div class="logo-area">
+    <!-- El atributo width nativo fuerza al navegador a reservar el espacio exacto antes del renderizado -->
+    <img src="logo.jpg" 
+         alt="Logo EFISOLAR" 
+         width="75"
+         style="height: auto; max-width: 75px; object-fit: contain; display: block;"
+         onerror="this.onerror=null; this.src='logo-oficial.jpg';">
+    
+    <div class="logo-text"><span>Energía Solar | Eficiencia Energética</span></div>
+</div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Soluciones</a></li>
