@@ -8,14 +8,14 @@
     <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
     
     <style>
-        /* --- ESTILEO CLEAN, PREMIUM Y TECNOLÓGICO CON FONDO REAL --- */
+        /* --- ESTILO CLEAN, PREMIUM Y TECNOLÓGICO CON FONDO REAL --- */
         :root {
             --primary: #f39c12;       /* Amarillo Solar Tesla */
             --nature-green: #2ecc71;  /* Verde Eficiencia */
             --dark-green: #1a3a2a;    /* Verde Profundo */
             --text-dark: #1d1d1f;     /* Gris Carbón Apple */
             --text-light: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.85); /* Efecto Vidrio Esmerilado */
+            --glass-bg: rgba(255, 255, 255, 0.82); /* Efecto Vidrio Esmerilado Premium */
             --glass-border: rgba(255, 255, 255, 0.4);
         }
 
@@ -31,15 +31,14 @@
             color: var(--text-dark);
             line-height: 1.5;
             background-color: #0f172a;
-            /* FOTO DE FONDO DE PANELES SOLARES INSTALADOS EN ALTA DEFINICIÓN */
-            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.75)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.8)), 
                         url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1920') no-repeat center center fixed;
             background-size: cover;
         }
 
-        /* --- BARRA DE NAVEGACIÓN PREMIUM COMPACTA --- */
+        /* --- BARRA DE NAVEGACIÓN ULTRA TRANSPARENTE CON GLASSMORPHISM --- */
         nav {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.4); /* Más transparente a petición */
             padding: 15px 60px;
             display: flex;
             justify-content: space-between;
@@ -47,9 +46,9 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .logo-area {
@@ -59,15 +58,16 @@
         }
 
         .logo-text {
-            color: var(--text-dark);
+            color: var(--text-light); /* Cambiado a blanco para contraste con fondo transparente */
             font-weight: 700;
             font-size: 1.25rem;
             letter-spacing: -0.3px;
             line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .logo-text span {
-            color: var(--nature-green);
+            color: var(--primary);
             font-size: 0.8rem;
             font-weight: 500;
             display: block;
@@ -75,41 +75,127 @@
             letter-spacing: 0.5px;
         }
 
+        /* Contenedor derecho del menú */
+        .nav-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* Enlaces de escritorio ocultos en móviles */
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 30px;
             align-items: center;
         }
 
         .nav-links a {
-            color: #515154;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.2s;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .nav-links a:hover {
-            color: var(--text-dark);
+            color: var(--primary);
         }
 
-        .btn-nav-cta {
-            background-color: var(--text-dark);
-            color: var(--white) !important;
-            padding: 8px 18px;
+        /* --- BOTÓN DE LAS 3 RAYAS (MENÚ HAMBURGUESA) --- */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Estilo animado cuando el menú está abierto */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        /* MENÚ LATERAL DESPLEGABLE (OVERLAY) */
+        .nav-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 100px 40px;
+            gap: 25px;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1050;
+        }
+
+        .nav-menu-overlay.active {
+            right: 0;
+        }
+
+        .nav-menu-overlay a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .nav-menu-overlay a:hover {
+            color: var(--primary);
+            padding-left: 8px;
+        }
+
+        /* OCULTAR INTERFAZ POR DEFECTO DE GOOGLE TRANSLATE TRADICIONAL */
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget span {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        #google_translate_element select {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 6px 12px;
             border-radius: 20px;
-            font-weight: 600 !important;
-            transition: background-color 0.2s;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
         }
-
-        .btn-nav-cta:hover {
-            background-color: #000000;
+        #google_translate_element select option {
+            background: #1e293b;
+            color: #fff;
         }
 
         /* --- SECCIÓN HERO --- */
         .hero {
-            padding: 120px 20px 80px;
+            padding: 100px 20px 60px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -133,10 +219,8 @@
             max-width: 680px;
             margin: 0 auto 45px;
             color: rgba(255, 255, 255, 0.85);
-            font-weight: 400;
         }
 
-        /* Botón de WhatsApp Premium */
         .btn-whatsapp {
             display: inline-block;
             padding: 16px 36px;
@@ -146,31 +230,39 @@
             font-weight: 600;
             border-radius: 28px;
             font-size: 1rem;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: transform 0.2s;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
         }
 
         .btn-whatsapp:hover {
-            background-color: #20ba59;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
-        /* --- SECCIÓN SOLUCIONES TIPO TESLA (GLASSMORPHISM) --- */
-        .solutions-section {
+        /* --- SECCIÓN OPINIONES / TESTIMONIOS (NUEVA) --- */
+        .testimonials-section {
             padding: 60px 20px;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
             max-width: 1050px;
             margin: 0 auto;
         }
 
-        .solution-card {
+        .section-title {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
             background: var(--glass-bg);
-            padding: 45px 35px;
+            padding: 35px;
             border-radius: 20px;
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(16px);
@@ -179,43 +271,57 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .solution-card:hover {
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.92);
+        .testimonial-text {
+            font-size: 1rem;
+            color: #444446;
+            font-style: italic;
+            margin-bottom: 20px;
         }
 
-        .solution-card h3 {
-            font-size: 1.5rem;
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 15px;
+        }
+
+        .user-info h4 {
+            font-size: 1rem;
             color: var(--text-dark);
-            margin-bottom: 15px;
             font-weight: 700;
-            letter-spacing: -0.5px;
         }
 
-        .solution-card p {
-            color: #515154;
-            margin-bottom: 35px;
-            font-size: 0.98rem;
+        .user-info span {
+            font-size: 0.85rem;
+            color: #6e6e73;
         }
 
-        .btn-card {
-            color: var(--nature-green);
+        .instagram-link {
+            color: #e1306c;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(225, 48, 108, 0.2);
+            padding: 6px 12px;
+            border-radius: 15px;
+            background: rgba(225, 48, 108, 0.05);
+            transition: all 0.2s;
         }
 
-        .btn-card:hover {
-            opacity: 0.8;
+        .instagram-link:hover {
+            background: #e1306c;
+            color: white;
         }
 
-        /* --- SIMULADOR DE ALTA TECNOLOGÍA --- */
+        /* --- SIMULADOR --- */
         .simulator-section {
-            padding: 100px 20px 140px;
+            padding: 60px 20px 100px;
         }
 
         .sim-container {
@@ -236,7 +342,6 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
         }
 
         .sim-container p {
@@ -253,20 +358,11 @@
             margin-bottom: 20px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             font-size: 0.88rem;
-            color: var(--text-dark);
         }
 
         .form-group input, .form-group select {
@@ -275,15 +371,11 @@
             border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 10px;
             background-color: rgba(255, 255, 255, 0.6);
-            color: var(--text-dark);
             font-size: 0.98rem;
-            transition: all 0.2s;
         }
 
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--text-dark);
-            background-color: var(--white);
+        .form-group.full-width {
+            grid-column: span 2;
         }
 
         .btn-sim-submit {
@@ -305,67 +397,163 @@
             transform: translateY(-1px);
         }
 
-        /* --- FOOTER --- */
+        /* --- PIE DE PÁGINA CORPORATIVO DETALLADO --- */
         footer {
-            background-color: rgba(15, 23, 42, 0.9);
-            color: rgba(255, 255, 255, 0.6);
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.85rem;
+            background-color: rgba(15, 23, 42, 0.95);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 40px 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
         }
 
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-info h5, .footer-platforms h5 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-info a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-info a:hover {
+            color: var(--primary);
+        }
+
+        .platform-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .platform-list a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .platform-list a:hover {
+            color: var(--nature-green);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav { padding: 15px 25px; flex-direction: column; gap: 15px; }
+            nav { padding: 15px 25px; }
+            .nav-links { display: none; } /* Ocultar links fijos en móvil */
             .hero h1 { font-size: 2.4rem; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .form-group.full-width { grid-column: auto; }
             .sim-container { padding: 35px 25px; }
+            .footer-container { text-align: center; }
+            .footer-info p { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
+    <nav id="inicio">
         <div class="logo-area">
             <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="60" style="height: auto; max-width: 60px; object-fit: contain; display: block; border-radius: 4px;">
-            <div class="logo-text">EFISOLAR <span>Energía Solar | Eficiencia</span></div>
+            <div class="logo-text">EFISOLAR <span>Ingeniería | Eficiencia</span></div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#soluciones">Soluciones</a></li>
-            <li><a href="#simulador" class="btn-nav-cta">Estudio Energético</a></li>
-        </ul>
+        
+        <div class="nav-right-controls">
+            <div id="google_translate_element"></div>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#opiniones">Opiniones</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
-    <header class="hero" id="inicio">
+    <div class="nav-menu-overlay" id="menuOverlay">
+        <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+        <a href="#opiniones" onclick="toggleMenu()">Testimonios</a>
+        <a href="#simulador" onclick="toggleMenu()">Simulador</a>
+        <a href="#soporte" onclick="toggleMenu()">Soporte</a>
+        <a href="#contacto" onclick="toggleMenu()">Contáctanos</a>
+    </div>
+
+    <header class="hero">
         <h1>Inversión inteligente. <span>Autonomía energética.</span></h1>
         <p>Diseñamos e instalamos plantas solares de alta ingeniería con la máxima eficiencia del Caribe colombiano.</p>
-        
         <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20solicito%20asesor%C3%ADa%20técnica%20para%20un%20proyecto%20solar." target="_blank" class="btn-whatsapp">
             Hablar con un Especialista
         </a>
     </header>
 
-    <section class="solutions-section" id="soluciones">
-        <div class="solutions-grid">
-            <div class="solution-card">
-                <div>
-                    <h3>Sistemas Residenciales</h3>
-                    <p>Módulos de alta eficiencia integrados para cubiertas residenciales urbanas. Genere su propio consumo y blinde su economía de las alzas tarifarias.</p>
+    <section class="testimonials-section" id="opiniones">
+        <h2 class="section-title">Opiniones de Nuestros Clientes</h2>
+        <div class="testimonials-grid">
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Excelente servicio e ingeniería. El valor de mi factura bajó drásticamente desde el primer mes y todo el proceso legal con la Ley 1715 fue transparente."</p>
+                <div class="testimonial-user">
+                    <div class="user-info">
+                        <h4>Ing. Carlos Mendoza</h4>
+                        <span>Proyecto Industrial</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/C8rXYZMuxxx/" target="_blank" class="instagram-link">Ver Video ▶</a>
                 </div>
-                <a href="residencial.html" class="btn-card">Línea Residencial ➔</a>
             </div>
 
-            <div class="solution-card">
-                <div>
-                    <h3>Soluciones Industriales</h3>
-                    <p>Ingeniería avanzada llave en mano para alta demanda comercial. Optimización del retorno de inversión bajo los incentivos de la Ley 1715.</p>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Instalamos los paneles en nuestra casa de campo y la experiencia ha sido espectacular. Cero problemas de energía y un soporte técnico de primer nivel."</p>
+                <div class="testimonial-user">
+                    <div class="user-info">
+                        <h4>Elena de la Espriella</h4>
+                        <span>Línea Residencial</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/C5pABCmpxxx/" target="_blank" class="instagram-link">Ver Caso ▶</a>
                 </div>
-                <a href="industrial.html" class="btn-card">Línea Corporativa ➔</a>
             </div>
+
         </div>
     </section>
 
@@ -410,24 +598,69 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 EFISOLAR. Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>EFISOLAR</h4>
+                <p>Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
+            </div>
+            
+            <div class="footer-info" id="soporte">
+                <h5>Contacto & Soporte</h5>
+                <p>📱 WhatsApp: <a href="https://wa.me/573021254480" target="_blank">+57 302 125 4480</a></p>
+                <p>✉️ Correo: <a href="mailto:contacto@efisolarcol.com">contacto@efisolarcol.com</a></p>
+                <p>📍 Cobertura Integral Región Caribe</p>
+            </div>
+
+            <div class="footer-platforms">
+                <h5>Nuestras Plataformas</h5>
+                <ul class="platform-list">
+                    <li><a href="https://www.instagram.com" target="_blank">📸 Instagram Oficial</a></li>
+                    <li><a href="https://linkedin.com" target="_blank">💼 LinkedIn Corporativo</a></li>
+                    <li><a href="#simulador">🖥️ Plataforma de Simulación Web</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EFISOLAR. Todos los derechos reservados. Compromiso técnico y ambiental.</p>
+        </div>
     </footer>
 
     <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        // Script adaptador para resultados.html
         document.getElementById('formPremium').addEventListener('submit', function(e) {
             e.preventDefault();
-
             const nombre = document.getElementById('nombre').value;
             const tipo = document.getElementById('tipo').value;
             const consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
-
-            // Transforma kWh a factor financiero equivalente para total compatibilidad con resultados.html
             const facturaEquivalente = consumoKWH * 1000;
 
             window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
         });
     </script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
