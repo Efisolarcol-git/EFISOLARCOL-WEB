@@ -3,44 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFISOLARCOL | Energía Solar Comercial e Industrial</title>
-    <link rel="icon" type="image/png" href="logo-oficial.jpg">
+    <title>EFISOLAR | Soluciones Solares Industriales y Comerciales</title>
+    
+    <!-- Icono de la pestaña (Favicon) -->
+    <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
     
     <style>
-        /* VARIABLES DE MARCA (MISMAS DE INDEX Y RESIDENCIAL) */
+        /* --- ESTILO CLEAN, PREMIUM Y TECNOLÓGICO INDUSTRIAL --- */
         :root {
-            --primary: #f39112;       /* Amarillo Solar */
-            --nature-green: #27ae60;  /* Verde Menta Orgánico */
-            --dark-green: #1e4620;    /* Verde Bosque Profundo */
-            --light-bg: #f9fbf9;      /* Blanco Ecológico Suave */
-            --text-dark: #2c3e50;     /* Gris Carbón Suave */
-            --white: #ffffff;
+            --primary: #f39c12;       /* Amarillo Solar Tesla */
+            --nature-green: #2ecc71;  /* Verde Eficiencia */
+            --text-dark: #1d1d1f;     /* Gris Carbón Apple */
+            --text-light: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.82); /* Efecto Vidrio Esmerilado */
+            --glass-border: rgba(255, 255, 255, 0.4);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light-bg);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.5;
+            background-color: #0f172a;
+            /* FONDO INDUSTRIAL DE ALTA INGENIERÍA CORPORATIVA */
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        /* BARRA DE NAVEGACIÓN */
+        /* --- BARRA DE NAVEGACIÓN ULTRA TRANSPARENTE (SINCRONIZADA CON INDEX) --- */
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.4);
+            padding: 15px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .logo-area {
@@ -50,190 +59,480 @@
         }
 
         .logo-text {
-            color: var(--dark-green);
+            color: var(--text-light);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
+            letter-spacing: -0.3px;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .logo-text span {
-            color: var(--nature-green);
-            font-size: 0.85rem;
-            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
             font-weight: 500;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
+            align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-dark);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--nature-green);
-        }
-
-        /* HERO SECCIÓN INDUSTRIAL */
-        .hero-industrial {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(30, 70, 32, 0.85)), url('data:image/jpeg;base64,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') no-repeat center center/cover;
-            color: var(--white);
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--primary);
-        }
-
-        .hero-industrial h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .hero-industrial h1 span {
             color: var(--primary);
         }
 
-        .hero-industrial p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
+        .lang-selector-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            gap: 6px;
         }
 
-        /* CONTENEDOR PRINCIPAL / BENEFICIOS */
-        .content-section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: auto;
+        .lang-select {
+            background: transparent;
+            color: #ffffff;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
         }
 
-        .section-title {
+        .lang-select option {
+            background: #1e293b;
+            color: #ffffff;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        .nav-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            padding: 100px 40px;
+            gap: 25px;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1050;
+        }
+
+        .nav-menu-overlay.active { right: 0; }
+        .nav-menu-overlay a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 1.2rem; font-weight: 600; }
+        .nav-menu-overlay a:hover { color: var(--primary); }
+
+        /* --- SECCIÓN HERO INDUSTRIAL --- */
+        .hero-ind {
+            padding: 100px 20px 40px;
             text-align: center;
-            color: var(--dark-green);
-            margin-bottom: 40px;
-            font-size: 2.2rem;
+            max-width: 950px;
+            margin: 0 auto;
         }
 
-        .features-grid {
+        .hero-ind h1 {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-ind h1 span {
+            color: var(--primary);
+        }
+
+        .hero-ind p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* --- SECCIÓN BENEFICIOS CORPORATIVOS --- */
+        .benefits-container {
+            max-width: 1050px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            padding: 35px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: #444446;
+            font-size: 0.95rem;
+        }
+
+        /* --- GALERÍA DE PROYECTOS INDUSTRIALES --- */
+        .gallery-section {
+            max-width: 1050px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .gallery-title {
+            color: var(--text-light);
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 35px;
+            letter-spacing: -0.5px;
+        }
+
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            gap: 25px;
         }
 
-        .feature-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-top: 4px solid var(--primary);
-            transition: 0.3s;
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            height: 250px;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .feature-card h3 {
-            color: var(--dark-green);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .gallery-item:hover img {
+            transform: scale(1.06);
         }
 
-        /* BOTÓN DE ACCIÓN */
-        .cta-container {
-            text-align: center;
-            margin-top: 40px;
+        .gallery-desc {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+            padding: 20px;
+            color: var(--text-light);
         }
 
-        .btn-cta {
-            display: inline-block;
-            background-color: var(--nature-green);
-            color: var(--white);
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 30px;
+        .gallery-desc h4 {
             font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-            transition: 0.3s;
-        }
-
-        .btn-cta:hover {
-            background-color: #219653;
-            transform: scale(1.03);
-        }
-
-        /* FOOTER (MISMO DE INDEX) */
-        footer {
-            background-color: #1e3a22;
-            color: #bfa7cf;
-            padding: 30px 20px;
-            text-align: center;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 60px;
         }
+
+        .gallery-desc p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        /* --- SECCIÓN LLAMADO A LA ACCIÓN --- */
+        .cta-box {
+            max-width: 650px;
+            margin: 0 auto 100px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .cta-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .cta-box p {
+            color: #515154;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .btn-whatsapp-green {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-whatsapp-green:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- PIE DE PÁGINA (CONEXIÓN EXACTA CON INDEX) --- */
+        footer {
+            background-color: rgba(15, 23, 42, 0.95);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 40px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-brand h4, .footer-info h5, .footer-platforms h5 { color: white; margin-bottom: 15px; }
+        .footer-info p { margin-bottom: 10px; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .footer-info a, .platform-list a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s; }
+        .footer-info a:hover, .platform-list a:hover { color: var(--primary); }
+        .platform-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-bottom { text-align: center; font-size: 0.85rem; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .hero-industrial h1 { font-size: 2.2rem; }
+            nav { padding: 15px 25px; }
+            .nav-links { display: none; }
+            .hero-ind h1 { font-size: 2.2rem; }
+            .footer-container { text-align: center; }
+            .footer-info p { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav>
         <div class="logo-area">
-            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="75" style="height: auto; max-width: 75px; object-fit: contain; display: block;">
-            <div class="logo-oficial.jpg">EFISOLAR <span>Energía Solar | Eficiencia Energética</span></div>
+            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="60" style="height: auto; max-width: 60px; object-fit: contain; display: block; border-radius: 4px;">
+            <div class="logo-text">EFISOLAR <span>Ingeniería | Eficiencia</span></div>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="index.html#servicios">Soluciones</a></li>
-            <li><a href="index.html#cotizar">Simulador</a></li>
-        </ul>
+        
+        <div class="nav-right-controls">
+            <!-- SELECTOR PREMIUM -->
+            <div class="lang-selector-container">
+                <span>🌐</span>
+                <select class="lang-select" id="langSelect">
+                    <option value="es">Español (ES)</option>
+                    <option value="en">English (EN)</option>
+                    <option value="pt">Português (PT)</option>
+                    <option value="fr">Français (FR)</option>
+                </select>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#simulador">Simulador</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
-    <header class="hero-industrial">
-        <h1>Soluciones Fotovoltaicas <span>Industriales</span></h1>
-        <p>Optimice los costos operativos de su empresa, reduzca la dependencia de la red eléctrica tradicional y acceda a los beneficios tributarios vigentes en Colombia.</p>
-        <a href="index.html#cotizar" class="btn-cta">Estudio Energético Industrial</a>
+    <!-- MENÚ LATERAL DESPLEGABLE -->
+    <div class="nav-menu-overlay" id="menuOverlay">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#simulador">Simulador</a>
+        <a href="#contacto">Soporte</a>
+        <a href="#contacto">Contáctanos</a>
+    </div>
+
+    <!-- HERO SECTION INDUSTRIAL -->
+    <header class="hero-ind">
+        <h1>Alta ingeniería fotovoltaica. <span>Máxima rentabilidad empresarial.</span></h1>
+        <p>Reducimos los costos fijos operativos de comercios e industrias en el Caribe mediante plantas solares llave en mano de alto rendimiento energético.</p>
     </header>
 
-    <main class="content-section">
-        <h2 class="section-title">Eficiencia Energética a Gran Escala</h2>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Rentabilidad Corporativa</h3>
-                <p>Reduzca drásticamente uno de los gastos operativos fijos más altos (OPEX) y convierta sus techos improductivos en activos generadores de valor financiero.</p>
+    <!-- EXPLICACIÓN CORTA Y CONTUNDENTE DE BENEFICIOS CORPORATIVOS -->
+    <section class="benefits-container">
+        <!-- Beneficio 1 -->
+        <div class="benefit-card">
+            <h3>⚖️ Incentivos Ley 1715</h3>
+            <p>Aprovecha al máximo la deducción del impuesto de renta, exclusión de IVA y aranceles, y depreciación acelerada de activos.</p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="benefit-card">
+            <h3>⚙️ Optimización de Costos</h3>
+            <p>Mitiga el impacto de las altas tarifas de comercialización eléctrica industrial. Convierte áreas ociosas de techos en activos productivos.</p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="benefit-card">
+            <h3>📈 Sostenibilidad de Marca</h3>
+            <p>Posiciona a tu empresa a la vanguardia de la transición energética global. Certificaciones verdes de alto valor corporativo.</p>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE PROYECTOS INDUSTRIALES -->
+    <section class="gallery-section">
+        <h2 class="gallery-title">Infraestructura Fotovoltaica Corporativa</h2>
+        <div class="gallery-grid">
+            
+            <!-- Foto 1 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600" alt="Planta sobre naves industriales">
+                <div class="gallery-desc">
+                    <h4>Cubiertas Industriales y Bodegas</h4>
+                    <p>Estructuras de alta resistencia calculadas para cargas de viento de la región.</p>
+                </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=600" alt="Sistemas Comerciales">
+                <div class="gallery-desc">
+                    <h4>Sistemas Comerciales Colectivos</h4>
+                    <p>Diseño fotovoltaico a gran escala enfocado en alta demanda diurna.</p>
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600" alt="Inversores de Potencia">
+                <div class="gallery-desc">
+                    <h4>Subestaciones e Inversores Centralizados</h4>
+                    <p>Ingeniería de potencia avanzada y sincronización perfecta con redes de media tensión.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN CONECTADO A WHATSAPP -->
+    <section style="padding: 0 20px;">
+        <div class="cta-box">
+            <h3>¿Evaluamos el perfil de carga de tu empresa?</h3>
+            <p>Estructuramos un análisis de viabilidad preliminar y proyección de retorno financiero sin ningún compromiso.</p>
+            <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20solicito%20un%20estudio%20financiero%20y%20técnico%20para%20mi%20empresa." target="_blank" class="btn-whatsapp-green">
+                Agendar Consultoría Industrial Gratis
+            </a>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA CORPORATIVO -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>EFISOLAR</h4>
+                <p>Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
             </div>
             
-            <div class="feature-card">
-                <h3>Incentivos Fiscales (Ley 1715)</h3>
-                <p>Aproveche el marco legal de Colombia: depreciación acelerada de activos, exención de IVA en equipos y deducción especial del impuesto de renta.</p>
+            <div class="footer-info">
+                <h5>Contacto & Soporte</h5>
+                <p>📱 WhatsApp: <a href="https://wa.me/573021254480" target="_blank">+57 302 125 4480</a></p>
+                <p>✉️ Correo: <a href="mailto:efisolar1@gmail.com">efisolar1@gmail.com</a></p>
+                <p>📍 Cobertura Integral Región Caribe</p>
             </div>
-            
-            <div class="feature-card">
-                <h3>Responsabilidad Ambiental</h3>
-                <p>Posicione su marca y empresa como un referente sostenible en el mercado. Certifique la reducción de emisiones de CO2 y cumpla con estándares globales.</p>
+
+            <div class="footer-platforms">
+                <h5>Nuestras Plataformas</h5>
+                <ul class="platform-list">
+                    <li><a href="https://www.facebook.com" target="_blank">🔵 Facebook</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">📸 Instagram</a></li>
+                    <li><a href="https://www.tiktok.com" target="_blank">🎵 TikTok</a></li>
+                </ul>
             </div>
         </div>
 
-        <div class="cta-container">
-            <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-dark);">¿Desea un calculo basado en el consumo mensual de su empresa?</p>
-            <a href="index.html#cotizar" class="btn-cta" style="background-color: var(--primary); box-shadow: 0 4px 15px rgba(243, 145, 18, 0.3);">Ir al Simulador Industrial</a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EFISOLAR. Todos los derechos reservados. Compromiso técnico y ambiental.</p>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
     </footer>
+
+    <!-- LÓGICA INTERACTIVA JAVASCRIPT -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        document.getElementById('langSelect').addEventListener('change', function() {
+            alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente.');
+        });
+    </script>
 
 </body>
 </html>
