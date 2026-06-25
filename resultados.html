@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="logo-oficial.jpg">
     
     <style>
-        /* VARIABLES DE MARCA (MISMAS DE INDEX, RESIDENCIAL E INDUSTRIAL) */
+        /* VARIABLES DE MARCA */
         :root {
             --primary: #f39112;       /* Amarillo Solar */
             --nature-green: #27ae60;  /* Verde Menta Orgánico */
@@ -30,7 +30,7 @@
             line-height: 1.6;
         }
 
-        /* BARRA DE NAVEGACIÓN COMPLETAMENTE CORREGIDA */
+        /* BARRA DE NAVEGACIÓN CORREGIDA */
         nav {
             background: rgba(255, 255, 255, 0.95);
             display: flex;
@@ -106,7 +106,7 @@
             margin-bottom: 30px;
         }
 
-        /* BLOQUES DE DATOS CALCULADOS */
+        /* GRILLA DE DATOS */
         .data-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -139,7 +139,7 @@
             color: var(--primary);
         }
 
-        /* MENSAJE ENFOCADO EN LEY 1715 / CARIBE */
+        /* NOTA DE LEY 1715 */
         .info-notice {
             background-color: #fef9e7;
             border-left: 4px solid var(--primary);
@@ -193,7 +193,7 @@
             transform: translateY(-2px);
         }
 
-        /* FOOTER (MISMO DE INDEX) */
+        /* FOOTER */
         footer {
             background-color: #1e3a22;
             color: #bfa7cf;
@@ -230,19 +230,19 @@
     <main class="results-container">
         <div class="results-card">
             <h1>Tu Estudio Energético</h1>
-            <p class="subtitle">Análisis preliminar óptimo para la transición energética legal en Colombia</p>
+            <p class="subtitle" id="user-greeting">Análisis preliminar óptimo para la transición energética legal en Colombia</p>
             
-            <!-- GRILLA DE DATOS -->
+            <!-- GRILLA DE DATOS DINÁMICOS -->
             <div class="data-grid">
                 <div class="data-box">
                     <h3>Paneles Estimados</h3>
-                    <div class="value">--</div>
+                    <div class="value" id="paneles-resultado">--</div>
                     <p style="font-size: 0.85rem; margin-top: 5px; color: #7f8c8d;">Unidades calculadas</p>
                 </div>
                 
                 <div class="data-box">
                     <h3>Ahorro Financiero</h3>
-                    <div class="value highlight">-- %</div>
+                    <div class="value highlight" id="ahorro-resultado">-- %</div>
                     <p style="font-size: 0.85rem; margin-top: 5px; color: #7f8c8d;">En su factura mensual</p>
                 </div>
             </div>
@@ -255,7 +255,7 @@
 
             <!-- BOTONES -->
             <div class="btn-group">
-                <a href="https://wa.me/573023154488" target="_blank" class="btn-action btn-primary">Recibir Informe en WhatsApp</a>
+                <a href="https://wa.me/573023154488" target="_blank" class="btn-action btn-primary" id="btn-whatsapp">Recibir Informe en WhatsApp</a>
                 <a href="index.html#cotizar" class="btn-action btn-secondary">Nueva Simulación</a>
             </div>
         </div>
@@ -265,6 +265,46 @@
     <footer>
         <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
     </footer>
+
+    <!-- LÓGICA DE PROGRAMACIÓN PARA EXTRAER Y CALCULAR -->
+    <script>
+        // 1. Obtener las variables enviadas por el formulario en la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nombre = urlParams.get('nombre') || 'Usuario';
+        const factura = parseFloat(urlParams.get('factura')) || 0;
+        const tipo = urlParams.get('tipo') || 'Residencial';
+
+        // Personalizar saludo
+        if(nombre !== 'Usuario') {
+            document.getElementById('user-greeting').innerText = `Hola ${nombre}, este es el análisis preliminar óptimo para tu infraestructura ${tipo}`;
+        }
+
+        // 2. Ejecutar lógica matemática de estimación energética
+        let numeroPaneles = 0;
+        let porcentajeAhorro = 0;
+
+        if (factura > 0) {
+            // Estimación base para la costa Caribe en base al costo de la factura
+            // Dividimos el costo aproximado por el aporte estimado de un panel comercial (~550W)
+            if (tipo === 'Residencial') {
+                numeroPaneles = Math.max(2, Math.ceil(factura / 110000)); 
+                porcentajeAhorro = 85; // Ahorro estándar residencial promedio
+            } else {
+                numeroPaneles = Math.max(6, Math.ceil(factura / 95000));
+                porcentajeAhorro = 90; // Ahorro estándar industrial/comercial promedio
+            }
+        }
+
+        // 3. Renderizar los cálculos matemáticos en pantalla
+        if(factura > 0) {
+            document.getElementById('paneles-resultado').innerText = numeroPaneles;
+            document.getElementById('ahorro-resultado').innerText = `${porcentajeAhorro}%`;
+            
+            // 4. Personalizar dinámicamente el mensaje de WhatsApp con los datos calculados
+            const mensajeWS = encodeURIComponent(`Hola EFISOLAR, mi nombre es ${nombre}. Acabo de realizar la simulación para mi espacio ${tipo}. Mi factura actual es de $${factura} COP y el sistema estimó ${numeroPaneles} paneles con un ${porcentajeAhorro}% de ahorro. Deseo un estudio detallado.`);
+            document.getElementById('btn-whatsapp').href = `https://wa.me/573023154488?text=${mensajeWS}`;
+        }
+    </script>
 
 </body>
 </html>
