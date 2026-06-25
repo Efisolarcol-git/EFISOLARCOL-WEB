@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFISOLAR | Ingeniería Fotovoltaica de Vanguardia</title>
     
+    <!-- Icono de la pestaña (Favicon) -->
     <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
     
     <style>
@@ -74,14 +75,13 @@
             letter-spacing: 0.5px;
         }
 
-        /* Contenedor derecho del menú */
         .nav-right-controls {
             display: flex;
             align-items: center;
             gap: 25px;
         }
 
-        /* Enlaces de escritorio */
+        /* Enlaces de escritorio (Sin Testimonios) */
         .nav-links {
             display: flex;
             list-style: none;
@@ -159,17 +159,11 @@
             box-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(7.5px) rotate(45deg);
-        }
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-7.5px) rotate(-45deg);
-        }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-        /* MENÚ LATERAL DESPLEGABLE (OVERLAY) */
+        /* MENÚ LATERAL DESPLEGABLE */
         .nav-menu-overlay {
             position: fixed;
             top: 0;
@@ -207,9 +201,9 @@
 
         /* --- SECCIÓN HERO --- */
         .hero {
-            padding: 110px 20px 50px;
+            padding: 110px 20px 40px;
             text-align: center;
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
@@ -228,9 +222,9 @@
 
         .hero p {
             font-size: 1.3rem;
-            max-width: 680px;
+            max-width: 720px;
             margin: 0 auto 45px;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .btn-whatsapp {
@@ -250,9 +244,66 @@
             transform: translateY(-2px);
         }
 
-        /* --- REINCORPORACIÓN DE SECCIÓN TARJETAS (RESIDENCIAL E INDUSTRIAL) --- */
+        /* --- SECCIÓN EXPANSIBLE DE BENEFICIOS DETALLADOS --- */
+        .detailed-benefits {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-info-box {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            color: var(--text-light);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .benefit-info-box h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .benefit-info-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .benefit-list-detailed {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .benefit-list-detailed li {
+            position: relative;
+            padding-left: 30px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .benefit-list-detailed li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--nature-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- SECCIÓN LÍNEAS DE ACCIÓN --- */
         .solutions-section {
-            padding: 40px 20px 40px;
+            padding: 20px 20px 40px;
         }
 
         .solutions-grid {
@@ -468,6 +519,7 @@
             nav { padding: 15px 25px; }
             .nav-links { display: none; }
             .hero h1 { font-size: 2.4rem; }
+            .detailed-benefits { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .form-group.full-width { grid-column: auto; }
             .sim-container { padding: 35px 25px; }
@@ -478,6 +530,7 @@
 </head>
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN (Testimonios Eliminado) -->
     <nav id="inicio">
         <div class="logo-area">
             <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="60" style="height: auto; max-width: 60px; object-fit: contain; display: block; border-radius: 4px;">
@@ -485,6 +538,7 @@
         </div>
         
         <div class="nav-right-controls">
+            <!-- SELECTOR PREMIUM CON ICONO DE MUNDO 🌐 -->
             <div class="lang-selector-container">
                 <span>🌐</span>
                 <select class="lang-select" id="langSelect">
@@ -495,12 +549,13 @@
                 </select>
             </div>
 
+            <!-- Menú Escritorio Sutil -->
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="testimonios.html">Testimonios</a></li>
                 <li><a href="#simulador">Simulador</a></li>
             </ul>
 
+            <!-- BOTÓN DE LAS 3 RAYAS (MENÚ HAMBURGUESA) -->
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -509,14 +564,15 @@
         </div>
     </nav>
 
+    <!-- MENÚ LATERAL DESPLEGABLE (Testimonios Eliminado) -->
     <div class="nav-menu-overlay" id="menuOverlay">
         <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-        <a href="testimonios.html">Testimonios</a>
         <a href="#simulador" onclick="toggleMenu()">Simulador</a>
         <a href="#soporte" onclick="toggleMenu()">Soporte</a>
         <a href="#contacto" onclick="toggleMenu()">Contáctanos</a>
     </div>
 
+    <!-- HEADER / HERO -->
     <header class="hero">
         <h1>Inversión inteligente. <span>Autonomía energética.</span></h1>
         <p>Diseñamos e instalamos plantas solares de alta ingeniería con la máxima eficiencia del Caribe colombiano.</p>
@@ -525,8 +581,28 @@
         </a>
     </header>
 
+    <!-- SECCIÓN EXPANSIBLE DE BENEFICIOS REALES -->
+    <section class="detailed-benefits">
+        <div class="benefit-info-box">
+            <h2>Por qué dar el salto solar hoy</h2>
+            <p>La matriz energética tradicional afronta retos tarifarios críticos, especialmente en la costa norte. Instalar módulos fotovoltaicos no es solo una acción ambiental; es una decisión financiera estratégica que congela tus costos de operación y blinda tu capital.</p>
+            <p>A través de la integración de inversores inteligentes y paneles de última generación monocristalinos, convertimos tus zonas descubiertas en activos altamente rentables.</p>
+        </div>
+        <div class="benefit-info-box">
+            <h2>Retorno de Inversión Tecnológico</h2>
+            <p>Nuestros proyectos están respaldados por análisis detallados de cargas eléctricas e ingeniería estructural. Los beneficios directos incluyen:</p>
+            <ul class="benefit-list-detailed">
+                <li><strong>Retorno Financiero Acelerado:</strong> Recuperación de la inversión calculada en tiempos mínimos gracias al ahorro inmediato en facturación masiva.</li>
+                <li><strong>Eficiencia Operativa Técnica:</strong> Sistemas diseñados con protecciones térmicas contra fluctuaciones de red e inclemencias climáticas.</li>
+                <li><strong>Monitoreo Remoto Inteligente:</strong> Control total de tu generación de energía diaria mediante plataformas digitales en tiempo real.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECCIÓN LÍNEAS DE ACCIÓN (Tarjetas Reincorporadas) -->
     <section class="solutions-section">
         <div class="solutions-grid">
+            <!-- Tarjeta Residencial -->
             <div class="solution-card">
                 <div>
                     <h3>Sistemas Residenciales</h3>
@@ -535,6 +611,7 @@
                 <a href="residencial.html" class="btn-card">Línea Residencial ➔</a>
             </div>
 
+            <!-- Tarjeta Industrial -->
             <div class="solution-card">
                 <div>
                     <h3>Soluciones Industriales</h3>
@@ -545,6 +622,7 @@
         </div>
     </section>
 
+    <!-- SIMULADOR INTEGRADO (kWh + NIT) -->
     <section class="simulator-section" id="simulador">
         <div class="sim-container">
             <h3>Simulador de Viabilidad</h3>
@@ -586,6 +664,7 @@
         </div>
     </section>
 
+    <!-- PIE DE PÁGINA CORPORATIVO -->
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
@@ -593,6 +672,7 @@
                 <p>Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
             </div>
             
+            <!-- SOPORTE Y CONTACTO -->
             <div class="footer-info" id="soporte">
                 <h5>Contacto & Soporte</h5>
                 <p>📱 WhatsApp: <a href="https://wa.me/573021254480" target="_blank">+57 302 125 4480</a></p>
@@ -600,6 +680,7 @@
                 <p>📍 Cobertura Integral Región Caribe</p>
             </div>
 
+            <!-- PLATAFORMAS ACTUALIZADAS -->
             <div class="footer-platforms">
                 <h5>Nuestras Plataformas</h5>
                 <ul class="platform-list">
@@ -615,7 +696,8 @@
         </div>
     </footer>
 
-    <script>
+    <!-- LÓGICA INTERACTIVA JAVASCRIPT -->
+    <script {
         // Control de Menú Hamburguesa
         const menuToggle = document.getElementById('menuToggle');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -629,7 +711,7 @@
             menuOverlay.classList.toggle('active');
         }
 
-        // Evento cambio de idioma (Control de Idiomas Importantes)
+        // Evento cambio de idioma
         document.getElementById('langSelect').addEventListener('change', function() {
             alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente a la plantilla premium.');
         });
