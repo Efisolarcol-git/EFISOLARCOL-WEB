@@ -38,7 +38,7 @@
 
         /* --- BARRA DE NAVEGACIÓN ULTRA TRANSPARENTE CON GLASSMORPHISM --- */
         nav {
-            background: rgba(255, 255, 255, 0.4); /* Más transparente a petición */
+            background: rgba(255, 255, 255, 0.4);
             padding: 15px 60px;
             display: flex;
             justify-content: space-between;
@@ -58,7 +58,7 @@
         }
 
         .logo-text {
-            color: var(--text-light); /* Cambiado a blanco para contraste con fondo transparente */
+            color: var(--text-light);
             font-weight: 700;
             font-size: 1.25rem;
             letter-spacing: -0.3px;
@@ -170,7 +170,7 @@
             padding-left: 8px;
         }
 
-        /* OCULTAR INTERFAZ POR DEFECTO DE GOOGLE TRANSLATE TRADICIONAL */
+        /* CONFIGURACIÓN GOOGLE TRANSLATE */
         .goog-te-banner-frame.skiptranslate, .goog-te-gadget span {
             display: none !important;
         }
@@ -195,7 +195,7 @@
 
         /* --- SECCIÓN HERO --- */
         .hero {
-            padding: 100px 20px 60px;
+            padding: 120px 20px 80px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -238,90 +238,9 @@
             transform: translateY(-2px);
         }
 
-        /* --- SECCIÓN OPINIONES / TESTIMONIOS (NUEVA) --- */
-        .testimonials-section {
-            padding: 60px 20px;
-            max-width: 1050px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: var(--glass-bg);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: #444446;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-user {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid rgba(0,0,0,0.06);
-            padding-top: 15px;
-        }
-
-        .user-info h4 {
-            font-size: 1rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .user-info span {
-            font-size: 0.85rem;
-            color: #6e6e73;
-        }
-
-        .instagram-link {
-            color: #e1306c;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            border: 1px solid rgba(225, 48, 108, 0.2);
-            padding: 6px 12px;
-            border-radius: 15px;
-            background: rgba(225, 48, 108, 0.05);
-            transition: all 0.2s;
-        }
-
-        .instagram-link:hover {
-            background: #e1306c;
-            color: white;
-        }
-
-        /* --- SIMULADOR --- */
+        /* --- SIMULADOR PREMIUM --- */
         .simulator-section {
-            padding: 60px 20px 100px;
+            padding: 40px 20px 100px;
         }
 
         .sim-container {
@@ -397,7 +316,7 @@
             transform: translateY(-1px);
         }
 
-        /* --- PIE DE PÁGINA CORPORATIVO DETALLADO --- */
+        /* --- PIE DE PÁGINA CORPORATIVO --- */
         footer {
             background-color: rgba(15, 23, 42, 0.95);
             color: rgba(255, 255, 255, 0.7);
@@ -477,7 +396,7 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav { padding: 15px 25px; }
-            .nav-links { display: none; } /* Ocultar links fijos en móvil */
+            .nav-links { display: none; }
             .hero h1 { font-size: 2.4rem; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .form-group.full-width { grid-column: auto; }
@@ -500,7 +419,7 @@
 
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#opiniones">Opiniones</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
                 <li><a href="#simulador">Simulador</a></li>
             </ul>
 
@@ -514,7 +433,7 @@
 
     <div class="nav-menu-overlay" id="menuOverlay">
         <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-        <a href="#opiniones" onclick="toggleMenu()">Testimonios</a>
+        <a href="testimonios.html">Testimonios</a>
         <a href="#simulador" onclick="toggleMenu()">Simulador</a>
         <a href="#soporte" onclick="toggleMenu()">Soporte</a>
         <a href="#contacto" onclick="toggleMenu()">Contáctanos</a>
@@ -527,35 +446,6 @@
             Hablar con un Especialista
         </a>
     </header>
-
-    <section class="testimonials-section" id="opiniones">
-        <h2 class="section-title">Opiniones de Nuestros Clientes</h2>
-        <div class="testimonials-grid">
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Excelente servicio e ingeniería. El valor de mi factura bajó drásticamente desde el primer mes y todo el proceso legal con la Ley 1715 fue transparente."</p>
-                <div class="testimonial-user">
-                    <div class="user-info">
-                        <h4>Ing. Carlos Mendoza</h4>
-                        <span>Proyecto Industrial</span>
-                    </div>
-                    <a href="https://www.instagram.com/reel/C8rXYZMuxxx/" target="_blank" class="instagram-link">Ver Video ▶</a>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Instalamos los paneles en nuestra casa de campo y la experiencia ha sido espectacular. Cero problemas de energía y un soporte técnico de primer nivel."</p>
-                <div class="testimonial-user">
-                    <div class="user-info">
-                        <h4>Elena de la Espriella</h4>
-                        <span>Línea Residencial</span>
-                    </div>
-                    <a href="https://www.instagram.com/reel/C5pABCmpxxx/" target="_blank" class="instagram-link">Ver Caso ▶</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <section class="simulator-section" id="simulador">
         <div class="sim-container">
@@ -615,9 +505,9 @@
             <div class="footer-platforms">
                 <h5>Nuestras Plataformas</h5>
                 <ul class="platform-list">
-                    <li><a href="https://www.instagram.com" target="_blank">📸 Instagram Oficial</a></li>
-                    <li><a href="https://linkedin.com" target="_blank">💼 LinkedIn Corporativo</a></li>
-                    <li><a href="#simulador">🖥️ Plataforma de Simulación Web</a></li>
+                    <li><a href="https://www.facebook.com" target="_blank">🔵 Facebook</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">📸 Instagram</a></li>
+                    <li><a href="https://www.tiktok.com" target="_blank">🎵 TikTok</a></li>
                 </ul>
             </div>
         </div>
@@ -640,7 +530,7 @@
             menuOverlay.classList.toggle('active');
         }
 
-        // Script adaptador para resultados.html
+        // Adaptador para redirección de resultados
         document.getElementById('formPremium').addEventListener('submit', function(e) {
             e.preventDefault();
             const nombre = document.getElementById('nombre').value;
