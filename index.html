@@ -35,7 +35,7 @@
         /* --- BARRA DE NAVEGACIÓN NATURAL --- */
         nav {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px 40px;
+            padding: 10px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,14 +50,15 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .logo-text {
             color: var(--dark-green);
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .logo-text span {
@@ -66,17 +67,6 @@
             font-weight: 500;
             display: block;
             margin-top: 2px;
-        }
-
-        /* CORRECCIÓN: Tamaño fijo controlado para que el logo no se desborde */
-        .logo-img {
-            height: 45px;
-            width: 45px;
-            object-fit: contain;  
-            border-radius: 50%;
-            background-color: white;
-            padding: 2px;
-            border: 1px solid #e2ebd5;
         }
 
         .nav-links {
@@ -307,12 +297,13 @@
     <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
         <div class="logo-area">
-            <!-- Sistema Inteligente de Autocarga del Logo -->
-             <img src="logo-oficial.jpg"
+            <!-- SOLUCIÓN INLINE: Controlamos directamente el tamaño alto aquí para que quepa perfecto en la barra sin importar el caché -->
+            <img src="logo.jpg" 
                  alt="Logo EFISOLAR" 
-                 class="logo-oficial.jpg" 
-                 src='https://efisolarcol.com/logo-oficial.jpg'; });")
-            <div class="logo-oficial.jpg">EFISOLAR <span>Energía Solar | Eficiencia Energética</span></div>
+                 style="height: 65px; width: auto; max-width: 80px; object-fit: contain; display: inline-block; vertical-align: middle;"
+                 onerror="this.onerror=null; this.src='logo.png';">
+            
+            <div class="logo-text"><span>Energía Solar | Eficiencia Energética</span></div>
         </div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
@@ -338,14 +329,14 @@
         <div class="services-grid">
             <div class="service-card">
                 <div>
-                    <h3>recidencial</h3>
+                    <h3>Hogares Ecológicos</h3>
                     <p>Transforme su casa en una fuente de energía limpia. Disminuya el impacto ambiental de su consumo diario.</p>
                 </div>
                 <a href="residencial.html" class="btn-card">Explorar Línea Hogar</a>
             </div>
             <div class="service-card">
                 <div>
-                    <h3>industrial</h3>
+                    <h3>Empresas Sostenibles</h3>
                     <p>Eleve los estándares de sostenibilidad de su compañía. Reduzca la huella de carbono industrial de inmediato.</p>
                 </div>
                 <a href="industrial.html" class="btn-card">Explorar Línea Empresa</a>
@@ -357,7 +348,7 @@
     <section class="calculator-section" id="cotizar">
         <div class="form-container">
             <h2>Estudio Energético Gratuito</h2>
-            <p>calcule al instante el requerimiento estimado de paneles y el porcentaje de beneficio financiero.</p>
+            <p>Simule al instante el requerimiento estimado de paneles y el porcentaje de beneficio financiero.</p>
             <form action="resultados.html" method="GET">
                 <div class="form-group">
                     <label for="nombre">Nombre Completo / Empresa:</label>
@@ -365,7 +356,7 @@
                 </div>
                 <div class="form-group">
                     <label for="celular">Número de Celular:</label>
-                    <input type="tel" id="celular" name="celular" placeholder="Ej. 3021254480" required>
+                    <input type="tel" id="celular" name="celular" placeholder="Ej. 3001234567" required>
                 </div>
                 <div class="form-group">
                     <label for="tipo">Tipo de Infraestructura:</label>
