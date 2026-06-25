@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energía Solar Comercial e Industrial | EFISOLAR</title>
+    <title>EFISOLAR | Energía Solar Comercial e Industrial</title>
+    <link rel="icon" type="image/png" href="logo-oficial.jpg">
+    
     <style>
-        /* --- ESTILOS GENERALES (Identidad EFISOLAR) --- */
+        /* VARIABLES DE MARCA (MISMAS DE INDEX Y RESIDENCIAL) */
         :root {
-            --primary: #f39c12; /* Amarillo Solar */
-            --dark: #1e272e;    /* Azul Oscuro Industrial */
-            --light: #f5f6fa;   /* Fondo claro */
-            --success: #2ecc71; /* Verde Financiero */
+            --primary: #f39112;       /* Amarillo Solar */
+            --nature-green: #27ae60;  /* Verde Menta Orgánico */
+            --dark-green: #1e4620;    /* Verde Bosque Profundo */
+            --light-bg: #f9fbf9;      /* Blanco Ecológico Suave */
+            --text-dark: #2c3e50;     /* Gris Carbón Suave */
+            --white: #ffffff;
         }
 
         * {
@@ -21,278 +25,214 @@
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* --- BARRA DE NAVEGACIÓN --- */
+        /* BARRA DE NAVEGACIÓN */
         nav {
-            background-color: var(--dark);
-            padding: 10px 40px;
+            background: rgba(255, 255, 255, 0.95);
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--primary);
+            padding: 15px 40px;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo-text {
-            color: white;
-            font-weight: bold;
-            font-size: 1.3rem;
-            letter-spacing: 0.5px;
-        }
-        .logo-text span { color: var(--primary); font-size: 0.9rem; font-weight: normal; margin-left: 5px; }
-
-        .logo-img {
-            height: 45px; 
-            width: auto;
-            border-radius: 50%; 
-            background-color: white;
-            padding: 2px;
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        /* --- SECCIÓN HERO INDUSTRIAL --- */
-        .hero-internal {
-            background: linear-gradient(rgba(30, 39, 46, 0.92), rgba(30, 39, 46, 0.92)), 
-                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200') no-repeat center center/cover;
-            color: white;
-            padding: 85px 20px;
-            text-align: center;
-        }
-
-        .hero-internal h1 {
-            font-size: 2.6rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .hero-internal p {
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.15rem;
-            color: #dcdde1;
-        }
-
-        /* --- CONTENIDO PRINCIPAL --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .grid-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 45px;
-            align-items: start;
-            margin-bottom: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .grid-info { grid-template-columns: 1fr; gap: 30px; }
-            nav { padding: 10px 20px; }
-            .logo-text { font-size: 1rem; }
-        }
-
-        .info-text h2 {
-            font-size: 1.9rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            position: relative;
-        }
-
-        .info-text h2::after {
-            content: '';
+        .logo-text span {
+            color: var(--nature-green);
+            font-size: 0.85rem;
             display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary);
-            margin-top: 8px;
-        }
-
-        .info-text p {
-            margin-bottom: 15px;
-            color: #57606f;
-        }
-
-        /* --- BENEFICIOS FINANCIEROS Y TRIBUTARIOS --- */
-        .benefits-list {
-            list-style: none;
-            margin-top: 25px;
-        }
-
-        .benefits-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
             font-weight: 500;
         }
 
-        .benefits-list li::before {
-            content: '📊';
-            margin-right: 12px;
-            font-size: 1.2rem;
-            margin-top: 2px;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
         }
 
-        /* --- CAJA DE VALOR AGREGADO / INGENIERÍA --- */
-        .engineering-box {
-            background: white;
-            padding: 35px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border-top: 5px solid var(--dark);
-        }
-
-        .engineering-box h3 {
-            margin-bottom: 20px;
-            color: var(--dark);
-            font-size: 1.4rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .step-item {
-            margin-bottom: 20px;
-        }
-
-        .step-item strong {
-            color: var(--primary);
-            display: block;
-            font-size: 1.05rem;
-            margin-bottom: 4px;
-        }
-
-        .step-item p {
-            font-size: 0.95rem;
-            color: #57606f;
-        }
-
-        /* --- BOTONES DE ACCIÓN --- */
-        .action-cta {
-            text-align: center;
-            margin-top: 50px;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .action-cta h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 35px;
+        .nav-links a {
+            color: var(--text-dark);
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s ease;
-            cursor: pointer;
-            margin: 10px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--dark);
+        .nav-links a:hover {
+            color: var(--nature-green);
         }
 
-        .btn-primary:hover {
-            background-color: #e67e22;
-            color: white;
-        }
-
-        .btn-secondary {
-            background-color: var(--dark);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #000;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--dark);
-            color: #bdc3c7;
+        /* HERO SECCIÓN INDUSTRIAL */
+        .hero-industrial {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(30, 70, 32, 0.85)), url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 20px;
             text-align: center;
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .hero-industrial h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-industrial h1 span {
+            color: var(--primary);
+        }
+
+        .hero-industrial p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* CONTENEDOR PRINCIPAL / BENEFICIOS */
+        .content-section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-green);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .feature-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* BOTÓN DE ACCIÓN */
+        .cta-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--nature-green);
+            color: var(--white);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-cta:hover {
+            background-color: #219653;
+            transform: scale(1.03);
+        }
+
+        /* FOOTER (MISMO DE INDEX) */
+        footer {
+            background-color: #1e3a22;
+            color: #bfa7cf;
             padding: 30px 20px;
+            text-align: center;
+            font-weight: 600;
             font-size: 0.9rem;
-            margin-top: 70px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .hero-industrial h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV BARRA SUPERIOR -->
     <nav>
-        <div class="logo.jpg">EFISOLAR<span>| Corporativo</span></div>
-        <div class="logo.jpg.container">
-            <img src="https://gemini.googleusercontent.com/media/uploaded:1000140834.jpg-797d0141-97b3-4a3b-8f16-8e0159aadc13" alt="Logo EFISOLAR" class="logo.jpg">
+        <div class="logo-area">
+            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="75" style="height: auto; max-width: 75px; object-fit: contain; display: block;">
+            <div class="logo-oficia.jpg">EFISOLAR <span>Energía Solar | Eficiencia Energética</span></div>
         </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#servicios">Soluciones</a></li>
+            <li><a href="index.html#cotizar">Simulador</a></li>
+        </ul>
     </nav>
 
-    <!-- CABECERA DE LA PÁGINA -->
-    <header class="hero-internal">
-        <h1>Soluciones Fotovoltaicas Industriales y Comerciales</h1>
-        <p>Optimice los costos operativos de su empresa, reduzca su huella de carbono y aproveche el marco regulatorio colombiano para maximizar la rentabilidad de su inversión.</p>
+    <header class="hero-industrial">
+        <h1>Soluciones Fotovoltaicas <span>Industriales</span></h1>
+        <p>Optimice los costos operativos de su empresa, reduzca la dependencia de la red eléctrica tradicional y acceda a los beneficios tributarios vigentes en Colombia.</p>
+        <a href="index.html#cotizar" class="btn-cta">Estudio Energético Empresarial</a>
     </header>
 
-    <!-- SECCIÓN DE INFORMACIÓN -->
-    <main class="container">
-        <div class="grid-info">
-            <div class="info-text">
-                <h2>Eficiencia Energética a Gran Escala</h2>
-                <p>Para el sector industrial y comercial, la energía no es solo un servicio público, es un costo operativo crítico. Nuestros sistemas de Autogeneración a Pequeña y Mediana Escala (AGPE / AGME) están diseñados para empresas que buscan blindarse ante la volatilidad de los precios de la red eléctrica nacional.</p>
-                <p>Desarrollamos proyectos llave en mano (EPC) que integran ingeniería avanzada, trámites ante el operador de red local y la gestión de beneficios regulatorios bajo la **Ley 1715 de 2014** y la resolución **CREG 174**.</p>
-                
-                <ul class="benefits-list">
-                    <li><strong>Deducción de Renta:</strong> Deducción del 50% del valor de la inversión en su declaración de renta.</li>
-                    <li><strong>Exclusión de IVA:</strong> Adquisición de paneles, inversores y controladores libres de IVA.</li>
-                    <li><strong>Depreciación Acelerada:</strong> Activos depreciables de forma acelerada para reducir la carga tributaria anual.</li>
-                    <li><strong>Cero Aranceles:</strong> Exención de gravámenes arancelarios para equipos importados.</li>
-                </ul>
+    <main class="content-section">
+        <h2 class="section-title">Eficiencia Energética a Gran Escala</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Rentabilidad Corporativa</h3>
+                <p>Reduzca drásticamente uno de los gastos operativos fijos más altos (OPEX) y convierta sus techos improductivos en activos generadores de valor financiero.</p>
             </div>
-
-            <div class="engineering-box">
-                <h3>Ingeniería y Rigor Técnico</h3>
-                
-                <div class="step-item">
-                    <strong>• Estudio de Carga y Calidad de Potencia:</strong> Analizamos sus curvas de consumo horario (perfil de carga) para dimensionar un sistema óptimo que mitigue los picos de demanda.
-                </div>
-                
-                <div class="step-item">
-                    <strong>• Estándar Normativo RETIE:</strong> Diseños eléctricos rigurosos bajo el Reglamento Técnico de Instalaciones Eléctricas, garantizando tableros de protecciones en AC/DC, sistemas de puesta a tierra (SPAT) y supresores de transitorios.
-                </div>
-                
-                <div class="step-item">
-                    <strong>• Monitoreo y Gestión SCADA:</strong> Sistemas de telemetría industrial que permiten supervisar la generación, la eficiencia del inversor y el consumo de la planta en tiempo real.
-                </div>
-                
-                <div class="step-item">
-                    <strong>• Estructuras de Carga Certificadas:</strong> Análisis estructural de cubiertas previo al montaje para asegurar la perfecta distribución del peso y resistencia a ráfagas de viento costeras.
-                </div>
+            
+            <div class="feature-card">
+                <h3>Incentivos Fiscales (Ley 1715)</h3>
+                <p>Aproveche el marco legal de Colombia: depreciación acelerada de activos, exención de IVA en equipos y deducción especial del impuesto de renta.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Responsabilidad Ambiental</h3>
+                <p>Posicione su marca y empresa como un referente sostenible en el mercado. Certifique la reducción de emisiones de CO2 y cumpla con estándares globales.</p>
             </div>
         </div>
 
-        <!-- LLAMADO A LA ACCIÓN -->
-        <div class="action-cta">
-            <h3>¿Listo para proyectar el retorno de inversión de su empresa?</h3>
-            <p style="color: #57606f; margin-bottom: 20px;">Use nuestro cotizador integrado para obtener un cálculo de módulos y ahorro base en segundos.</p>
-            <a href="index.html#cotizar" class="btn btn-primary">Simular Proyecto Industrial</a>
-            <a href="index.html" class="btn btn-secondary">Regresar al Inicio</a>
+        <div class="cta-container">
+            <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-dark);">¿Desea una simulación basada en el consumo mensual de su empresa?</p>
+            <a href="index.html#cotizar" class="btn-cta" style="background-color: var(--primary); box-shadow: 0 4px 15px rgba(243, 145, 18, 0.3);">Ir al Simulador Industrial</a>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 EFISOLAR S.A.S. - Ingeniería Fotovoltaica Comercial e Industrial. Proyectos bajo Ley 1715, CREG 174 y RETIE.</p>
+        <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
     </footer>
 
 </body>
