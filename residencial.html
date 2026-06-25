@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFISOLAR | Energía Solar Residencial</title>
+    <title>EFISOLAR | Energía Solar Comercial e Industrial</title>
     <link rel="icon" type="image/png" href="logo-oficial.jpg">
     
     <style>
-        /* VARIABLES DE MARCA (MISMAS DE INDEX) */
+        /* VARIABLES DE MARCA (MISMAS DE INDEX Y RESIDENCIAL) */
         :root {
             --primary: #f39112;       /* Amarillo Solar */
             --nature-green: #27ae60;  /* Verde Menta Orgánico */
@@ -79,27 +79,27 @@
             color: var(--nature-green);
         }
 
-        /* HERO SECCIÓN RESIDENCIAL */
-        .hero-residential {
-            background: linear-gradient(rgba(30, 70, 32, 0.75), rgba(30, 70, 32, 0.85)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200') no-repeat center center/cover;
+        /* HERO SECCIÓN INDUSTRIAL */
+        .hero-industrial {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(30, 70, 32, 0.85)), url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200') no-repeat center center/cover;
             color: var(--white);
             padding: 100px 20px;
             text-align: center;
             border-bottom: 5px solid var(--primary);
         }
 
-        .hero-residential h1 {
+        .hero-industrial h1 {
             font-size: 3rem;
             margin-bottom: 15px;
         }
 
-        .hero-residential h1 span {
+        .hero-industrial h1 span {
             color: var(--primary);
         }
 
-        .hero-residential p {
+        .hero-industrial p {
             font-size: 1.25rem;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 30px auto;
         }
 
@@ -129,7 +129,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-top: 4px solid var(--nature-green);
+            border-top: 4px solid var(--primary);
             transition: 0.3s;
         }
 
@@ -181,13 +181,12 @@
 
         @media (max-width: 768px) {
             nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .hero-residential h1 { font-size: 2.2rem; }
+            .hero-industrial h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
         <div class="logo-area">
             <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="75" style="height: auto; max-width: 75px; object-fit: contain; display: block;">
@@ -200,41 +199,38 @@
         </ul>
     </nav>
 
-    <!-- HERO PRINCIPAL RESIDENCIAL -->
-    <header class="hero-residential">
-        <h1>Energía Solar para su <span>Hogar</span></h1>
-        <p>Reduzca hasta un 90% el costo de su factura de energía eléctrica y proteja a su familia con una fuente inagotable y limpia.</p>
-        <a href="index.html#cotizar" class="btn-cta">Simular mi Ahorro</a>
+    <header class="hero-industrial">
+        <h1>Soluciones Fotovoltaicas <span>Industriales</span></h1>
+        <p>Optimice los costos operativos de su empresa, reduzca la dependencia de la red eléctrica tradicional y acceda a los beneficios tributarios vigentes en Colombia.</p>
+        <a href="index.html#cotizar" class="btn-cta">Estudio Energético Empresarial</a>
     </header>
 
-    <!-- SECCIÓN DE BENEFICIOS -->
     <main class="content-section">
-        <h2 class="section-title">¿Por qué pasarse a Energía Solar en Casa?</h2>
+        <h2 class="section-title">Eficiencia Energética a Gran Escala</h2>
         
         <div class="features-grid">
             <div class="feature-card">
-                <h3>Ahorro Inmediato</h3>
-                <p>Comience a pagar menos desde el primer día de instalación. Mitigue de forma drástica el impacto de las altas tarifas de los operadores locales.</p>
+                <h3>Rentabilidad Corporativa</h3>
+                <p>Reduzca drásticamente uno de los gastos operativos fijos más altos (OPEX) y convierta sus techos improductivos en activos generadores de valor financiero.</p>
             </div>
             
             <div class="feature-card">
-                <h3>Valorización del Inmueble</h3>
-                <p>Las viviendas equipadas con sistemas de paneles solares fotovoltaicos incrementan su valor comercial en el mercado inmobiliario.</p>
+                <h3>Incentivos Fiscales (Ley 1715)</h3>
+                <p>Aproveche el marco legal de Colombia: depreciación acelerada de activos, exención de IVA en equipos y deducción especial del impuesto de renta.</p>
             </div>
             
             <div class="feature-card">
-                <h3>Sostenibilidad Real</h3>
-                <p>Disminuya la huella de carbono de su familia convirtiendo su hogar en un espacio eco-amigable que respeta el medio ambiente.</p>
+                <h3>Responsabilidad Ambiental</h3>
+                <p>Posicione su marca y empresa como un referente sostenible en el mercado. Certifique la reducción de emisiones de CO2 y cumpla con estándares globales.</p>
             </div>
         </div>
 
         <div class="cta-container">
-            <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-dark);">¿Quiere saber cuántos paneles necesita su casa?</p>
-            <a href="index.html#cotizar" class="btn-cta" style="background-color: var(--primary); box-shadow: 0 4px 15px rgba(243, 145, 18, 0.3);">Ir al Simulador Residencial</a>
+            <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-dark);">¿Desea una simulación basada en el consumo mensual de su empresa?</p>
+            <a href="index.html#cotizar" class="btn-cta" style="background-color: var(--primary); box-shadow: 0 4px 15px rgba(243, 145, 18, 0.3);">Ir al Simulador Industrial</a>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
     </footer>
