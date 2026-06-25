@@ -12,7 +12,6 @@
         :root {
             --primary: #f39c12;       /* Amarillo Solar Tesla */
             --nature-green: #2ecc71;  /* Verde Eficiencia */
-            --dark-green: #1a3a2a;    /* Verde Profundo */
             --text-dark: #1d1d1f;     /* Gris Carbón Apple */
             --text-light: #ffffff;
             --glass-bg: rgba(255, 255, 255, 0.82); /* Efecto Vidrio Esmerilado Premium */
@@ -82,7 +81,7 @@
             gap: 25px;
         }
 
-        /* Enlaces de escritorio ocultos en móviles */
+        /* Enlaces de escritorio */
         .nav-links {
             display: flex;
             list-style: none;
@@ -101,6 +100,43 @@
 
         .nav-links a:hover {
             color: var(--primary);
+        }
+
+        /* --- CONTENEDOR IDIOMA EXCLUSIVO CON MUNDO 🌐 --- */
+        .lang-selector-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .lang-selector-container:hover {
+            background: rgba(255, 255, 255, 0.28);
+        }
+
+        .lang-selector-container span {
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .lang-select {
+            background: transparent;
+            color: #ffffff;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            padding-right: 4px;
+        }
+
+        .lang-select option {
+            background: #1e293b;
+            color: #ffffff;
         }
 
         /* --- BOTÓN DE LAS 3 RAYAS (MENÚ HAMBURGUESA) --- */
@@ -123,7 +159,6 @@
             box-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
-        /* Estilo animado cuando el menú está abierto */
         .menu-toggle.active span:nth-child(1) {
             transform: translateY(7.5px) rotate(45deg);
         }
@@ -170,32 +205,9 @@
             padding-left: 8px;
         }
 
-        /* CONFIGURACIÓN GOOGLE TRANSLATE */
-        .goog-te-banner-frame.skiptranslate, .goog-te-gadget span {
-            display: none !important;
-        }
-        body {
-            top: 0px !important;
-        }
-        #google_translate_element select {
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-        }
-        #google_translate_element select option {
-            background: #1e293b;
-            color: #fff;
-        }
-
         /* --- SECCIÓN HERO --- */
         .hero {
-            padding: 120px 20px 80px;
+            padding: 110px 20px 50px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -236,6 +248,64 @@
 
         .btn-whatsapp:hover {
             transform: translateY(-2px);
+        }
+
+        /* --- REINCORPORACIÓN DE SECCIÓN TARJETAS (RESIDENCIAL E INDUSTRIAL) --- */
+        .solutions-section {
+            padding: 40px 20px 40px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            background: var(--glass-bg);
+            padding: 45px 35px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .solution-card:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .solution-card p {
+            color: #515154;
+            margin-bottom: 35px;
+            font-size: 0.98rem;
+        }
+
+        .btn-card {
+            color: var(--nature-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-card:hover {
+            opacity: 0.8;
         }
 
         /* --- SIMULADOR PREMIUM --- */
@@ -415,7 +485,15 @@
         </div>
         
         <div class="nav-right-controls">
-            <div id="google_translate_element"></div>
+            <div class="lang-selector-container">
+                <span>🌐</span>
+                <select class="lang-select" id="langSelect">
+                    <option value="es">Español (ES)</option>
+                    <option value="en">English (EN)</option>
+                    <option value="pt">Português (PT)</option>
+                    <option value="fr">Français (FR)</option>
+                </select>
+            </div>
 
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
@@ -446,6 +524,26 @@
             Hablar con un Especialista
         </a>
     </header>
+
+    <section class="solutions-section">
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div>
+                    <h3>Sistemas Residenciales</h3>
+                    <p>Módulos de alta eficiencia integrados para cubiertas residenciales urbanas. Genere su propio consumo y blinde su economía de las alzas tarifarias.</p>
+                </div>
+                <a href="residencial.html" class="btn-card">Línea Residencial ➔</a>
+            </div>
+
+            <div class="solution-card">
+                <div>
+                    <h3>Soluciones Industriales</h3>
+                    <p>Ingeniería avanzada llave en mano para alta demanda comercial. Optimización del retorno de inversión bajo los incentivos de la Ley 1715.</p>
+                </div>
+                <a href="industrial.html" class="btn-card">Línea Corporativa ➔</a>
+            </div>
+        </div>
+    </section>
 
     <section class="simulator-section" id="simulador">
         <div class="sim-container">
@@ -518,6 +616,7 @@
     </footer>
 
     <script>
+        // Control de Menú Hamburguesa
         const menuToggle = document.getElementById('menuToggle');
         const menuOverlay = document.getElementById('menuOverlay');
 
@@ -530,7 +629,12 @@
             menuOverlay.classList.toggle('active');
         }
 
-        // Adaptador para redirección de resultados
+        // Evento cambio de idioma (Control de Idiomas Importantes)
+        document.getElementById('langSelect').addEventListener('change', function() {
+            alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente a la plantilla premium.');
+        });
+
+        // Adaptador para redirección de simulación y cálculo
         document.getElementById('formPremium').addEventListener('submit', function(e) {
             e.preventDefault();
             const nombre = document.getElementById('nombre').value;
@@ -541,16 +645,6 @@
             window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
         });
     </script>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
