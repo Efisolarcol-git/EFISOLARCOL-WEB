@@ -3,48 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFISOLAR | Energía Solar y Eficiencia Energética</title>
+    <title>EFISOLAR | Ingeniería Fotovoltaica de Vanguardia</title>
     
-    <!-- Icono de la pestaña (Favicon) -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
     
     <style>
-        /* --- VARIABLES DE MARCA ESTÉTICA NATURAL --- */
+        /* --- ESTILO CLEAN, PREMIUM Y TECNOLÓGICO CON FONDO REAL --- */
         :root {
-            --primary: #f39c12;    /* Amarillo Solar */
-            --nature-green: #27ae60; /* Verde Hoja Orgánico */
-            --dark-green: #1e4620;   /* Verde Bosque Profundo */
-            --light-bg: #f9fbf9;     /* Blanco Ecológico Suave */
-            --text-dark: #2c3e50;    /* Gris Carbón Suave */
+            --primary: #f39c12;       /* Amarillo Solar Tesla */
+            --nature-green: #2ecc71;  /* Verde Eficiencia */
+            --text-dark: #1d1d1f;     /* Gris Carbón Apple */
+            --text-light: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.82); /* Efecto Vidrio Esmerilado Premium */
+            --glass-border: rgba(255, 255, 255, 0.4);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light-bg);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.5;
+            background-color: #0f172a;
+            background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        /* --- BARRA DE NAVEGACIÓN NATURAL --- */
+        /* --- BARRA DE NAVEGACIÓN ULTRA TRANSPARENTE CON GLASSMORPHISM --- */
         nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 15px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #e2ebd5;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .logo-area {
@@ -54,337 +57,702 @@
         }
 
         .logo-text {
-            color: var(--dark-green);
+            color: var(--text-light);
             font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: 0.5px;
+            font-size: 1.25rem;
+            letter-spacing: -0.3px;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .logo-text span {
-            color: var(--nature-green);
-            font-size: 0.85rem;
+            color: var(--primary);
+            font-size: 0.8rem;
             font-weight: 500;
             display: block;
+            margin-top: 2px;
+            letter-spacing: 0.5px;
         }
 
-        .logo-img {
-            height: 45px;
-            width: 45px;
-            object-fit: cover;
-            border-radius: 50%;
-            background-color: white;
-            padding: 2px;
-            border: 1px solid #e2ebd5;
-        }
-
-        .nav-links {
+        .nav-right-controls {
             display: flex;
-            list-style: none;
+            align-items: center;
             gap: 25px;
         }
 
+        /* Enlaces de escritorio */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
         .nav-links a {
-            color: var(--text-dark);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .nav-links a:hover {
-            color: var(--nature-green);
+            color: var(--primary);
         }
 
-        /* --- SECCIÓN HERO CON PANELES SOLARES MODERNOS --- */
-        .hero {
-            background: linear-gradient(rgba(249, 251, 249, 0.85), rgba(249, 251, 249, 0.9)), 
-                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200') no-repeat center center/cover;
-            color: var(--text-dark);
-            padding: 130px 20px;
-            text-align: center;
-            border-bottom: 1px solid #e2ebd5;
+        /* --- CONTENEDOR IDIOMA EXCLUSIVO CON MUNDO 🌐 --- */
+        .lang-selector-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            gap: 6px;
+            transition: background 0.2s;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--dark-green);
-            font-weight: 800;
+        .lang-selector-container:hover {
+            background: rgba(255, 255, 255, 0.28);
         }
 
-        .hero h1 span {
-            color: var(--nature-green);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 750px;
-            margin: 0 auto 40px;
-            color: #57606f;
-        }
-
-        /* Botón de WhatsApp Orgánico */
-        .btn-whatsapp {
-            display: inline-block;
-            padding: 16px 40px;
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: transform 0.2s, box-shadow 0.3s, background-color 0.3s;
+        .lang-selector-container span {
             font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            line-height: 1;
+        }
+
+        .lang-select {
+            background: transparent;
+            color: #ffffff;
             border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            padding-right: 4px;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1ebd56;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        .lang-select option {
+            background: #1e293b;
+            color: #ffffff;
         }
 
-        /* --- SECCIÓN SERVICIOS --- */
-        .services {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .services h2 {
-            font-size: 2.2rem;
-            margin-bottom: 45px;
-            color: var(--dark-green);
-            position: relative;
-        }
-
-        .services h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--nature-green);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid #f0f4eb;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        /* --- BOTÓN DE LAS 3 RAYAS (MENÚ HAMBURGUESA) --- */
+        .menu-toggle {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 1100;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(39, 174, 96, 0.08);
-            border-color: #d2e4bc;
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
-        .service-card h3 {
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        /* MENÚ LATERAL DESPLEGABLE */
+        .nav-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 100px 40px;
+            gap: 25px;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1050;
+        }
+
+        .nav-menu-overlay.active {
+            right: 0;
+        }
+
+        .nav-menu-overlay a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .nav-menu-overlay a:hover {
+            color: var(--primary);
+            padding-left: 8px;
+        }
+
+        /* --- SECCIÓN HERO --- */
+        .hero {
+            padding: 110px 20px 40px;
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 720px;
+            margin: 0 auto 45px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            padding: 16px 36px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 28px;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN EXPANSIBLE DE BENEFICIOS DETALLADOS --- */
+        .detailed-benefits {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-info-box {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            color: var(--text-light);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .benefit-info-box h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .benefit-info-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .benefit-list-detailed {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .benefit-list-detailed li {
+            position: relative;
+            padding-left: 30px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .benefit-list-detailed li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--nature-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- SECCIÓN LÍNEAS DE ACCIÓN --- */
+        .solutions-section {
+            padding: 20px 20px 40px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            background: var(--glass-bg);
+            padding: 45px 35px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .solution-card:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .solution-card h3 {
             font-size: 1.5rem;
+            color: var(--text-dark);
             margin-bottom: 15px;
-            color: var(--dark-green);
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        .service-card p {
-            color: #626d7a;
-            margin-bottom: 30px;
+        .solution-card p {
+            color: #515154;
+            margin-bottom: 35px;
             font-size: 0.98rem;
         }
 
         .btn-card {
-            background-color: #f0f7f4;
             color: var(--nature-green);
-            padding: 12px 25px;
             text-decoration: none;
-            font-weight: 700;
-            border-radius: 25px;
-            transition: 0.3s;
-            border: 1px solid #dceff2;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
         }
 
-        .service-card:hover .btn-card {
-            background-color: var(--nature-green);
-            color: white;
-            border-color: var(--nature-green);
+        .btn-card:hover {
+            opacity: 0.8;
         }
 
-        /* --- SECCIÓN COTIZADOR --- */
-        .calculator-section {
-            background-color: #f0f5f1;
-            padding: 80px 20px;
-            border-top: 1px solid #e1ebd5;
+        /* --- SIMULADOR PREMIUM --- */
+        .simulator-section {
+            padding: 40px 20px 100px;
         }
 
-        .form-container {
-            max-width: 600px;
+        .sim-container {
+            max-width: 620px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-            border: 1px solid #e2ebd5;
+            background: var(--glass-bg);
+            padding: 45px 50px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
         }
 
-        .form-container h2 {
+        .sim-container h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 10px;
-            color: var(--dark-green);
+            margin-bottom: 8px;
         }
 
-        .form-container p {
+        .sim-container p {
             text-align: center;
-            color: #626d7a;
-            margin-bottom: 34px;
+            color: #6e6e73;
+            margin-bottom: 35px;
             font-size: 0.95rem;
         }
 
-        .form-group {
-            margin-bottom: 22px;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--text-dark);
+            font-size: 0.88rem;
         }
 
         .form-group input, .form-group select {
             width: 100%;
-            padding: 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            background-color: #fafbfc;
-            color: #1e272e;
-            font-size: 1rem;
+            padding: 12px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            font-size: 0.98rem;
         }
 
-        .btn-submit {
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .btn-sim-submit {
             width: 100%;
-            margin-top: 10px;
-            background-color: var(--nature-green);
-            color: white;
-            padding: 14px;
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 15px;
             border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.05rem;
             cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            margin-top: 10px;
         }
 
-        /* --- FOOTER --- */
+        .btn-sim-submit:hover {
+            background-color: #000000;
+            transform: translateY(-1px);
+        }
+
+        /* --- PIE DE PÁGINA CORPORATIVO --- */
         footer {
-            background-color: #1e3322;
-            color: #cbd7cc;
-            text-align: center;
-            padding: 35px 20px;
-            font-size: 0.9rem;
+            background-color: rgba(15, 23, 42, 0.95);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 40px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-info h5, .footer-platforms h5 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-info a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-info a:hover {
+            color: var(--primary);
+        }
+
+        .platform-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .platform-list a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .platform-list a:hover {
+            color: var(--nature-green);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .hero h1 { font-size: 2.2rem; }
+            nav { padding: 15px 25px; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.4rem; }
+            .detailed-benefits { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .form-group.full-width { grid-column: auto; }
+            .sim-container { padding: 35px 25px; }
+            .footer-container { text-align: center; }
+            .footer-info p { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav>
+    <nav id="inicio">
         <div class="logo-area">
-            <!-- Sistema Inteligente de Autocarga del Logo -->
-            <img src="logo.jpg" 
-                 alt="Logo EFISOLAR" 
-                 class="logo-img" 
-                 onerror="this.onerror=null; this.src='logo.png'; this.addEventListener('error', function(){ this.src='https://efisolarcol.com/logo.jpg'; });">
-            
-            <div class="logo-text">EFISOLAR<span>Energía Solar | Eficiencia Energética</span></div>
+            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="60" style="height: auto; max-width: 60px; object-fit: contain; display: block; border-radius: 4px;">
+            <div class="logo-text">EFISOLAR <span>Ingeniería | Eficiencia</span></div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Soluciones</a></li>
-            <li><a href="#cotizar">Simulador</a></li>
-        </ul>
+        
+        <div class="nav-right-controls">
+            <div class="lang-selector-container">
+                <span>🌐</span>
+                <select class="lang-select" id="langSelect">
+                    <option value="es">Español (ES)</option>
+                    <option value="en">English (EN)</option>
+                    <option value="pt">Português (PT)</option>
+                    <option value="fr">Français (FR)</option>
+                </select>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
-    <!-- HÉROE PRINCIPAL CON ENLACE DE WHATSAPP ACTUALIZADO -->
-    <header class="hero" id="inicio">
-        <h1>Genere su propia energía de forma <span>sostenible</span></h1>
-        <p>Diseñamos soluciones fotovoltaicas eficientes alineadas con el cuidado ambiental y la transición energética legal en Colombia.</p>
-        
-        <!-- Hipervínculo directo al número corporativo 3021254480 -->
-        <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20solar." target="_blank" class="btn-whatsapp">
-            Cotiza con nosotros
+    <div class="nav-menu-overlay" id="menuOverlay">
+        <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+        <a href="#simulador" onclick="toggleMenu()">Simulador</a>
+        <a href="#soporte" onclick="toggleMenu()">Soporte</a>
+        <a href="#contacto" onclick="toggleMenu()">Contáctanos</a>
+    </div>
+
+    <header class="hero">
+        <h1>Inversión inteligente. <span>Autonomía energética.</span></h1>
+        <p>Diseñamos e instalamos plantas solares de alta ingeniería con la máxima eficiencia del Caribe colombiano.</p>
+        <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20solicito%20asesor%C3%ADa%20técnica%20para%20un%20proyecto%20solar." target="_blank" class="btn-whatsapp">
+            Hablar con un Especialista
         </a>
     </header>
 
-    <!-- SECCIÓN DE SERVICIOS -->
-    <section class="services" id="servicios">
-        <h2>Transición Energética a su Medida</h2>
-        <div class="services-grid">
-            <div class="service-card">
+    <section class="detailed-benefits">
+        <div class="benefit-info-box">
+            <h2>Por qué dar el salto solar hoy</h2>
+            <p>La matriz energética tradicional afronta retos tarifarios críticos, especialmente en la costa norte. Instalar módulos fotovoltaicos no es solo una acción ambiental; es una decisión financiera estratégica que congela tus costos de operación y blinda tu capital.</p>
+            <p>A través de la integración de inversores inteligentes y paneles de última generación monocristalinos, convertimos tus zonas descubiertas en activos altamente rentables.</p>
+        </div>
+        <div class="benefit-info-box">
+            <h2>Retorno de Inversión Tecnológico</h2>
+            <p>Nuestros proyectos están respaldados por análisis detallados de cargas eléctricas e ingeniería estructural. Los beneficios directos incluyen:</p>
+            <ul class="benefit-list-detailed">
+                <li><strong>Retorno Financiero Acelerado:</strong> Recuperación de la inversión calculada en tiempos mínimos gracias al ahorro inmediato en facturación masiva.</li>
+                <li><strong>Eficiencia Operativa Técnica:</strong> Sistemas diseñados con protecciones térmicas contra fluctuaciones de red e inclemencias climáticas.</li>
+                <li><strong>Monitoreo Remoto Inteligente:</strong> Control total de tu generación de energía diaria mediante plataformas digitales en tiempo real.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="solutions-section">
+        <div class="solutions-grid">
+            <div class="solution-card">
                 <div>
-                    <h3>Hogares Ecológicos</h3>
-                    <p>Transforme su casa en una fuente de energía limpia. Disminuya el impacto ambiental de su consumo diario.</p>
+                    <h3>Sistemas Residenciales</h3>
+                    <p>Módulos de alta eficiencia integrados para cubiertas residenciales urbanas. Genere su propio consumo y blinde su economía de las alzas tarifarias.</p>
                 </div>
-                <a href="residencial.html" class="btn-card">Explorar Línea Hogar</a>
+                <a href="residencial.html" class="btn-card">Línea Residencial ➔</a>
             </div>
-            <div class="service-card">
+
+            <div class="solution-card">
                 <div>
-                    <h3>Empresas Sostenibles</h3>
-                    <p>Eleve los estándares de sostenibilidad de su compañía. Reduzca la huella de carbono industrial de inmediato.</p>
+                    <h3>Soluciones Industriales</h3>
+                    <p>Ingeniería avanzada llave en mano para alta demanda comercial. Optimización del retorno de inversión bajo los incentivos de la Ley 1715.</p>
                 </div>
-                <a href="industrial.html" class="btn-card">Explorar Línea Empresa</a>
+                <a href="industrial.html" class="btn-card">Línea Corporativa ➔</a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN COTIZADOR -->
-    <section class="calculator-section" id="cotizar">
-        <div class="form-container">
-            <h2>Estudio Energético Gratuito</h2>
-            <p>Simule al instante el requerimiento estimado de paneles y el porcentaje de beneficio financiero.</p>
-            <form action="resultados.html" method="GET">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo / Empresa:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+    <section class="simulator-section" id="simulador">
+        <div class="sim-container">
+            <h3>Simulador de Viabilidad</h3>
+            <p>Escriba los parámetros de su infraestructura para calcular de forma inmediata el dimensionamiento preliminar.</p>
+            
+            <form action="resultados.html" method="GET" id="formPremium">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre o Razón Social</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nit">NIT / Cédula (Opcional)</label>
+                        <input type="text" id="nit" name="nit" placeholder="Ej. 901234567-1">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="celular">Número de Celular:</label>
-                    <input type="tel" id="celular" name="celular" placeholder="Ej. 3001234567" required>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="celular">Número de Celular</label>
+                        <input type="tel" id="celular" name="celular" placeholder="Ej. 3001234567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Proyecto</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="Residencial">Residencial (Hogar)</option>
+                            <option value="Industrial">Comercial o Industrial</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="tipo">Tipo de Infraestructura:</label>
-                    <select id="tipo" name="tipo" required>
-                        <option value="Residencial">Residencial (Hogar)</option>
-                        <option value="Industrial">Comercial e Industrial</option>
-                    </select>
+
+                <div class="form-group full-width">
+                    <label for="consumo">Consumo Mensual Promedio (kWh por mes)</label>
+                    <input type="number" id="consumo" name="consumo" placeholder="Ej. 480" min="1" required>
                 </div>
-                <div class="form-group">
-                    <label for="factura">Costo Mensual de Energía Actual (COP):</label>
-                    <input type="number" id="factura" name="factura" placeholder="Ej. 350000" min="1000" required>
-                </div>
-                <button type="submit" class="btn-submit">Calcular Mi Ahorro Estimado</button>
+
+                <button type="submit" class="btn-sim-submit">Calcular Rendimiento Financiero</button>
             </form>
+
+            <div style="margin-top: 50px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 40px;">
+                <h4 style="font-size: 1.4rem; color: var(--text-dark); font-weight: 700; text-align: center; margin-bottom: 30px; letter-spacing: -0.5px;">
+                    Ingeniería Respaldada por Especialistas
+                </h4>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                    
+                    <div style="background: rgba(255, 255, 255, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); text-align: center;">
+                        <div style="width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 15px; overflow: hidden; border: 2px solid var(--primary);">
+                            <img src="foto-ing1.jpg" alt="Ingeniero 1" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h5 style="font-size: 1.15rem; color: var(--text-dark); font-weight: 700; margin-bottom: 4px;">Ing. Nombre Apellido</h5>
+                        <span style="font-size: 0.85rem; color: var(--primary); font-weight: 600; display: block; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+                           ESPECIALISTA EN ENERGIAS RENOVABLES Y SOLUCIONES RENOVABLES
+                        </span>
+                        <p style="font-size: 0.9rem; color: #515154; line-height: 1.4;">
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); text-align: center;">
+                        <div style="width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 15px; overflow: hidden; border: 2px solid var(--primary);">
+                            <img src="foto-ing2.jpg" alt="Ingeniero 2" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h5 style="font-size: 1.15rem; color: var(--text-dark); font-weight: 700; margin-bottom: 4px;">Ing. Nombre Apellido</h5>
+                        <span style="font-size: 0.85rem; color: var(--primary); font-weight: 600; display: block; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            MAGISTER EN EFICIENCIA ENERGETICA Y ENERGIAS RENOVABLES
+                        </span>
+                        <p style="font-size: 0.9rem; color: #515154; line-height: 1.4;">
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 EFISOLAR. Compromiso ambiental, ingeniería de vanguardia y eficiencia energética para el Caribe.</p>
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>EFISOLAR</h4>
+                <p>Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
+            </div>
+            
+            <div class="footer-info" id="soporte">
+                <h5>Contacto & Soporte</h5>
+                <p>📱 WhatsApp: <a href="https://wa.me/573021254480" target="_blank">+57 302 125 4480</a></p>
+                <p>✉️ Correo: <a href="mailto:contacto@efisolarcol.com">contacto@efisolarcol.com</a></p>
+                <p>📍 Cobertura Integral Región Caribe</p>
+            </div>
+
+            <div class="footer-platforms">
+                <h5>Nuestras Plataformas</h5>
+                <ul class="platform-list">
+                    <li><a href="https://www.facebook.com" target="_blank">🔵 Facebook</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">📸 Instagram</a></li>
+                    <li><a href="https://www.tiktok.com" target="_blank">🎵 TikTok</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EFISOLAR. Todos los derechos reservados. Compromiso técnico y ambiental.</p>
+        </div>
     </footer>
+
+    <script>
+        // Control de Menú Hamburguesa
+        const menuToggle = document.getElementById('menuToggle');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        // Evento cambio de idioma
+        document.getElementById('langSelect').addEventListener('change', function() {
+            alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente a la plantilla premium.');
+        });
+
+        // Adaptador para redirección de simulación y cálculo
+        document.getElementById('formPremium').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const tipo = document.getElementById('tipo').value;
+            const consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
+            const facturaEquivalente = consumoKWH * 1000;
+
+            window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
+        });
+    </script>
 
 </body>
 </html>
