@@ -3,537 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFISOLAR | Soluciones Solares Industriales y Comerciales</title>
-    
-    <!-- Icono de la pestaña (Favicon) -->
-    <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
-    
+    <title>Energía Solar Comercial e Industrial | EFISOLAR</title>
     <style>
-        /* --- ESTILO CLEAN, PREMIUM Y TECNOLÓGICO INDUSTRIAL --- */
+        /* --- ESTILOS GENERALES (Identidad EFISOLAR) --- */
         :root {
-            --primary: #f39c12;       /* Amarillo Solar Tesla */
-            --nature-green: #2ecc71;  /* Verde Eficiencia */
-            --text-dark: #1d1d1f;     /* Gris Carbón Apple */
-            --text-light: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.82); /* Efecto Vidrio Esmerilado */
-            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary: #f39c12; /* Amarillo Solar */
+            --dark: #1e272e;    /* Azul Oscuro Industrial */
+            --light: #f5f6fa;   /* Fondo claro */
+            --success: #2ecc71; /* Verde Financiero */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            color: var(--text-dark);
-            line-height: 1.5;
-            background-color: #0f172a;
-            /* FONDO INDUSTRIAL DE ALTA INGENIERÍA CORPORATIVA */
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.9)), 
-                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1920') no-repeat center center fixed;
-            background-size: cover;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
         }
 
-        /* --- BARRA DE NAVEGACIÓN ULTRA TRANSPARENTE (SINCRONIZADA CON INDEX) --- */
+        /* --- BARRA DE NAVEGACIÓN --- */
         nav {
-            background: rgba(255, 255, 255, 0.4);
-            padding: 15px 60px;
+            background-color: var(--dark);
+            padding: 10px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; 
             align-items: center;
+            border-bottom: 3px solid var(--primary);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .logo-text {
-            color: var(--text-light);
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.3px;
-            line-height: 1.1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .logo-text span {
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: block;
-            margin-top: 2px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
             letter-spacing: 0.5px;
         }
+        .logo-text span { color: var(--primary); font-size: 0.9rem; font-weight: normal; margin-left: 5px; }
 
-        .nav-right-controls {
-            display: flex;
-            align-items: center;
-            gap: 25px;
+        .logo-img {
+            height: 45px; 
+            width: auto;
+            border-radius: 50%; 
+            background-color: white;
+            padding: 2px;
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .lang-selector-container {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 6px 12px;
-            border-radius: 20px;
-            gap: 6px;
-        }
-
-        .lang-select {
-            background: transparent;
-            color: #ffffff;
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .lang-select option {
-            background: #1e293b;
-            color: #ffffff;
-        }
-
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 26px;
-            height: 18px;
-            cursor: pointer;
-            z-index: 1100;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 3px;
-            background-color: var(--text-light);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-
-        .nav-menu-overlay {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            display: flex;
-            flex-direction: column;
-            padding: 100px 40px;
-            gap: 25px;
-            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 1050;
-        }
-
-        .nav-menu-overlay.active { right: 0; }
-        .nav-menu-overlay a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 1.2rem; font-weight: 600; }
-        .nav-menu-overlay a:hover { color: var(--primary); }
 
         /* --- SECCIÓN HERO INDUSTRIAL --- */
-        .hero-ind {
-            padding: 100px 20px 40px;
-            text-align: center;
-            max-width: 950px;
-            margin: 0 auto;
-        }
-
-        .hero-ind h1 {
-            font-size: 3.2rem;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            color: var(--text-light);
-            font-weight: 700;
-            letter-spacing: -1.5px;
-        }
-
-        .hero-ind h1 span {
-            color: var(--primary);
-        }
-
-        .hero-ind p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        /* --- SECCIÓN BENEFICIOS CORPORATIVOS --- */
-        .benefits-container {
-            max-width: 1050px;
-            margin: 0 auto 50px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .benefit-card {
-            background: var(--glass-bg);
-            padding: 35px 30px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            transition: transform 0.2s;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .benefit-card h3 {
-            font-size: 1.3rem;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .benefit-card p {
-            color: #444446;
-            font-size: 0.95rem;
-        }
-
-        /* --- GALERÍA DE PROYECTOS INDUSTRIALES --- */
-        .gallery-section {
-            max-width: 1050px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
-        }
-
-        .gallery-title {
-            color: var(--text-light);
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 35px;
-            letter-spacing: -0.5px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            height: 250px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.06);
-        }
-
-        .gallery-desc {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
-            padding: 20px;
-            color: var(--text-light);
-        }
-
-        .gallery-desc h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .gallery-desc p {
-            font-size: 0.85rem;
-            opacity: 0.85;
-        }
-
-        /* --- SECCIÓN LLAMADO A LA ACCIÓN --- */
-        .cta-box {
-            max-width: 650px;
-            margin: 0 auto 100px;
-            background: rgba(255, 255, 255, 0.92);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-        }
-
-        .cta-box h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .cta-box p {
-            color: #515154;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-
-        .btn-whatsapp-green {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: #25d366;
+        .hero-internal {
+            background: linear-gradient(rgba(30, 39, 46, 0.92), rgba(30, 39, 46, 0.92)), 
+                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200') no-repeat center center/cover;
             color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            transition: transform 0.2s;
+            padding: 85px 20px;
+            text-align: center;
         }
 
-        .btn-whatsapp-green:hover {
-            transform: translateY(-2px);
+        .hero-internal h1 {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
-        /* --- PIE DE PÁGINA (CONEXIÓN EXACTA CON INDEX) --- */
-        footer {
-            background-color: rgba(15, 23, 42, 0.95);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 60px 40px 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+        .hero-internal p {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #dcdde1;
         }
 
-        .footer-container {
+        /* --- CONTENIDO PRINCIPAL --- */
+        .container {
             max-width: 1100px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-            text-align: left;
+            padding: 50px 20px;
         }
 
-        .footer-brand h4, .footer-info h5, .footer-platforms h5 { color: white; margin-bottom: 15px; }
-        .footer-info p { margin-bottom: 10px; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
-        .footer-info a, .platform-list a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s; }
-        .footer-info a:hover, .platform-list a:hover { color: var(--primary); }
-        .platform-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-        .footer-bottom { text-align: center; font-size: 0.85rem; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: start;
+            margin-bottom: 50px;
+        }
 
         @media (max-width: 768px) {
-            nav { padding: 15px 25px; }
-            .nav-links { display: none; }
-            .hero-ind h1 { font-size: 2.2rem; }
-            .footer-container { text-align: center; }
-            .footer-info p { justify-content: center; }
+            .grid-info { grid-template-columns: 1fr; gap: 30px; }
+            nav { padding: 10px 20px; }
+            .logo-text { font-size: 1rem; }
+        }
+
+        .info-text h2 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .info-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            margin-top: 8px;
+        }
+
+        .info-text p {
+            margin-bottom: 15px;
+            color: #57606f;
+        }
+
+        /* --- BENEFICIOS FINANCIEROS Y TRIBUTARIOS --- */
+        .benefits-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+
+        .benefits-list li::before {
+            content: '📊';
+            margin-right: 12px;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        /* --- CAJA DE VALOR AGREGADO / INGENIERÍA --- */
+        .engineering-box {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--dark);
+        }
+
+        .engineering-box h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 1.4rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .step-item {
+            margin-bottom: 20px;
+        }
+
+        .step-item strong {
+            color: var(--primary);
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .step-item p {
+            font-size: 0.95rem;
+            color: #57606f;
+        }
+
+        /* --- BOTONES DE ACCIÓN --- */
+        .action-cta {
+            text-align: center;
+            margin-top: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .action-cta h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #000;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark);
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            margin-top: 70px;
         }
     </style>
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN -->
+    <!-- NAV BARRA SUPERIOR -->
     <nav>
-        <div class="logo-area">
-            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="60" style="height: auto; max-width: 60px; object-fit: contain; display: block; border-radius: 4px;">
-            <div class="logo-text">EFISOLAR <span>Energia solar | Eficiencia Energetica</span></div>
-        </div>
-        
-        <div class="nav-right-controls">
-            <!-- SELECTOR PREMIUM -->
-            <div class="lang-selector-container">
-                <span>🌐</span>
-                <select class="lang-select" id="langSelect">
-                    <option value="es">Español (ES)</option>
-                    <option value="en">English (EN)</option>
-                    <option value="pt">Português (PT)</option>
-                    <option value="fr">Français (FR)</option>
-                </select>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="index.html#simulador">Simulador</a></li>
-            </ul>
-
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <div class="logo-text">EFISOLAR<span>| Corporativo</span></div>
+        <div class="logo-img-container">
+            <img src="https://gemini.googleusercontent.com/media/uploaded:1000140834.jpg-797d0141-97b3-4a3b-8f16-8e0159aadc13" alt="Logo EFISOLAR" class="logo-img">
         </div>
     </nav>
 
-    <!-- MENÚ LATERAL DESPLEGABLE -->
-    <div class="nav-menu-overlay" id="menuOverlay">
-        <a href="index.html">Inicio</a>
-        <a href="index.html#simulador">Simulador</a>
-        <a href="#contacto">Soporte</a>
-        <a href="https://wa.me/573021254480">Contáctanos</a>
-    </div>
-
-    <!-- HERO SECTION INDUSTRIAL -->
-    <header class="hero-ind">
-        <h1>Alta ingeniería fotovoltaica. <span>Máxima rentabilidad empresarial.</span></h1>
-        <p>Reducimos los costos fijos operativos de comercios e industrias en el Caribe mediante plantas solares llave en mano de alto rendimiento energético.</p>
+    <!-- CABECERA DE LA PÁGINA -->
+    <header class="hero-internal">
+        <h1>Soluciones Fotovoltaicas Industriales y Comerciales</h1>
+        <p>Optimice los costos operativos de su empresa, reduzca su huella de carbono y aproveche el marco regulatorio colombiano para maximizar la rentabilidad de su inversión.</p>
     </header>
 
-    <!-- EXPLICACIÓN CORTA Y CONTUNDENTE DE BENEFICIOS CORPORATIVOS -->
-    <section class="benefits-container">
-        <!-- Beneficio 1 -->
-        <div class="benefit-card">
-            <h3>⚖️ Incentivos Ley 1715</h3>
-            <p>Aprovecha al máximo la deducción del impuesto de renta, exclusión de IVA y aranceles, y depreciación acelerada de activos.</p>
-        </div>
-
-        <!-- Beneficio 2 -->
-        <div class="benefit-card">
-            <h3>⚙️ Optimización de Costos</h3>
-            <p>Mitiga el impacto de las altas tarifas de comercialización eléctrica industrial. Convierte áreas ociosas de techos en activos productivos.</p>
-        </div>
-
-        <!-- Beneficio 3 -->
-        <div class="benefit-card">
-            <h3>📈 Sostenibilidad de Marca</h3>
-            <p>Posiciona a tu empresa a la vanguardia de la transición energética global. Certificaciones verdes de alto valor corporativo.</p>
-        </div>
-    </section>
-
-    <!-- GALERÍA DE PROYECTOS INDUSTRIALES -->
-    <section class="gallery-section">
-        <h2 class="gallery-title">Infraestructura Fotovoltaica Corporativa</h2>
-        <div class="gallery-grid">
-            
-            <!-- Foto 1 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600" alt="Planta sobre naves industriales">
-                <div class="gallery-desc">
-                    <h4>Cubiertas Industriales y Bodegas</h4>
-                    <p>Estructuras de alta resistencia calculadas para cargas de viento de la región.</p>
-                </div>
-            </div>
-
-            <!-- Foto 2 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=600" alt="Sistemas Comerciales">
-                <div class="gallery-desc">
-                    <h4>Sistemas Comerciales Colectivos</h4>
-                    <p>Diseño fotovoltaico a gran escala enfocado en alta demanda diurna.</p>
-                </div>
-            </div>
-
-            <!-- Foto 3 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600" alt="Inversores de Potencia">
-                <div class="gallery-desc">
-                    <h4>Subestaciones e Inversores Centralizados</h4>
-                    <p>Ingeniería de potencia avanzada y sincronización perfecta con redes de media tensión.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- LLAMADO A LA ACCIÓN CONECTADO A WHATSAPP -->
-    <section style="padding: 0 20px;">
-        <div class="cta-box">
-            <h3>¿Evaluamos el perfil de carga de tu empresa?</h3>
-            <p>Estructuramos un análisis de viabilidad preliminar y proyección de retorno financiero sin ningún compromiso.</p>
-            <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20solicito%20un%20estudio%20financiero%20y%20técnico%20para%20mi%20empresa." target="_blank" class="btn-whatsapp-green">
-                Agendar Consultoría Industrial Gratis
-            </a>
-        </div>
-    </section>
-
-    <!-- PIE DE PÁGINA CORPORATIVO -->
-    <footer id="contacto">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h4>EFISOLAR</h4>
-                <p>Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
-            </div>
-            
-            <div class="footer-info">
-                <h5>Contacto & Soporte</h5>
-                <p>📱 WhatsApp: <a href="https://wa.me/573021254480" target="_blank">+57 302 125 4480</a></p>
-                <p>✉️ Correo: <a href="mailto:efisolar1@gmail.com">efisolar1@gmail.com</a></p>
-                <p>📍 Cobertura Integral Región Caribe</p>
-            </div>
-
-            <div class="footer-platforms">
-                <h5>Nuestras Plataformas</h5>
-                <ul class="platform-list">
-                    <li><a href="https://www.facebook.com" target="_blank">🔵 Facebook</a></li>
-                    <li><a href="https://www.instagram.com" target="_blank">📸 Instagram</a></li>
-                    <li><a href="https://www.tiktok.com" target="_blank">🎵 TikTok</a></li>
+    <!-- SECCIÓN DE INFORMACIÓN -->
+    <main class="container">
+        <div class="grid-info">
+            <div class="info-text">
+                <h2>Eficiencia Energética a Gran Escala</h2>
+                <p>Para el sector industrial y comercial, la energía no es solo un servicio público, es un costo operativo crítico. Nuestros sistemas de Autogeneración a Pequeña y Mediana Escala (AGPE / AGME) están diseñados para empresas que buscan blindarse ante la volatilidad de los precios de la red eléctrica nacional.</p>
+                <p>Desarrollamos proyectos llave en mano (EPC) que integran ingeniería avanzada, trámites ante el operador de red local y la gestión de beneficios regulatorios bajo la **Ley 1715 de 2014** y la resolución **CREG 174**.</p>
+                
+                <ul class="benefits-list">
+                    <li><strong>Deducción de Renta:</strong> Deducción del 50% del valor de la inversión en su declaración de renta.</li>
+                    <li><strong>Exclusión de IVA:</strong> Adquisición de paneles, inversores y controladores libres de IVA.</li>
+                    <li><strong>Depreciación Acelerada:</strong> Activos depreciables de forma acelerada para reducir la carga tributaria anual.</li>
+                    <li><strong>Cero Aranceles:</strong> Exención de gravámenes arancelarios para equipos importados.</li>
                 </ul>
             </div>
+
+            <div class="engineering-box">
+                <h3>Ingeniería y Rigor Técnico</h3>
+                
+                <div class="step-item">
+                    <strong>• Estudio de Carga y Calidad de Potencia:</strong> Analizamos sus curvas de consumo horario (perfil de carga) para dimensionar un sistema óptimo que mitigue los picos de demanda.
+                </div>
+                
+                <div class="step-item">
+                    <strong>• Estándar Normativo RETIE:</strong> Diseños eléctricos rigurosos bajo el Reglamento Técnico de Instalaciones Eléctricas, garantizando tableros de protecciones en AC/DC, sistemas de puesta a tierra (SPAT) y supresores de transitorios.
+                </div>
+                
+                <div class="step-item">
+                    <strong>• Monitoreo y Gestión SCADA:</strong> Sistemas de telemetría industrial que permiten supervisar la generación, la eficiencia del inversor y el consumo de la planta en tiempo real.
+                </div>
+                
+                <div class="step-item">
+                    <strong>• Estructuras de Carga Certificadas:</strong> Análisis estructural de cubiertas previo al montaje para asegurar la perfecta distribución del peso y resistencia a ráfagas de viento costeras.
+                </div>
+            </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 EFISOLAR. Todos los derechos reservados. Compromiso técnico y ambiental.</p>
-             <a href="https://www.minenergia.gov.co/">RETIE</a>
+        <!-- LLAMADO A LA ACCIÓN -->
+        <div class="action-cta">
+            <h3>¿Listo para proyectar el retorno de inversión de su empresa?</h3>
+            <p style="color: #57606f; margin-bottom: 20px;">Use nuestro cotizador integrado para obtener un cálculo de módulos y ahorro base en segundos.</p>
+            <a href="index.html#cotizar" class="btn btn-primary">Simular Proyecto Industrial</a>
+            <a href="index.html" class="btn btn-secondary">Regresar al Inicio</a>
         </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 EFISOLAR S.A.S. - Ingeniería Fotovoltaica Comercial e Industrial. Proyectos bajo Ley 1715, CREG 174 y RETIE.</p>
     </footer>
-
-    <!-- LÓGICA INTERACTIVA JAVASCRIPT -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const menuOverlay = document.getElementById('menuOverlay');
-
-        menuToggle.addEventListener('click', () => {
-            toggleMenu();
-        });
-
-        function toggleMenu() {
-            menuToggle.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-        }
-
-        document.getElementById('langSelect').addEventListener('change', function() {
-            alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente.');
-        });
-    </script>
 
 </body>
 </html>
