@@ -179,7 +179,7 @@
 
         /* --- SECCIÓN DETALLES TÉCNICOS --- */
         .tech-specs-section {
-            padding: 20px 20px 80px;
+            padding: 20px 20px 40px;
             max-width: 1050px;
             margin: 0 auto;
         }
@@ -286,7 +286,7 @@
         /* --- BOTÓN DE ACCIÓN ACCESIBLE --- */
         .action-area {
             text-align: center;
-            padding: 40px 20px 80px;
+            padding: 30px 20px 80px;
         }
 
         .btn-industrial-cta {
@@ -307,22 +307,14 @@
             background-color: #e67e22;
         }
 
-        /* --- PIE DE PÁGINA --- */
-        footer {
-            background-color: rgba(15, 23, 42, 0.95);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 40px 20px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            font-size: 0.85rem;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav { padding: 15px 25px; }
             .nav-links { display: none; }
             .hero-industrial h1 { font-size: 2.2rem; }
             .law-incentives-box { padding: 30px 20px; }
+            .industrial-slide { height: 280px !important; }
+            .slider-container-box { height: 280px !important; }
         }
     </style>
 </head>
@@ -371,7 +363,7 @@
                     <h3>Cumplimiento Normativo RETIE</h3>
                     <p>Diseño y ejecución rigurosa bajo parámetros del Reglamento Técnico de Instalaciones Eléctricas. Garantizamos la máxima seguridad operativa en sistemas trifásicos y protecciones de media tensión.</p>
                 </div>
-                <span class="spec-tag">Garantía Técnica</span>
+                <span class="spec-tag">Garantía Técnico</span>
             </div>
 
             <!-- Inversores Inteligentes -->
@@ -420,9 +412,39 @@
         </div>
     </section>
 
+    <!-- CARRUSEL AUTOMÁTICO DE PROYECTOS INDUSTRIALES -->
+    <section style="max-width: 1050px; margin: 0 auto 30px; padding: 0 20px;">
+        <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; padding: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); text-align: center;">
+            
+            <h3 style="font-size: 1.6rem; color: var(--text-dark); font-weight: 700; margin-bottom: 22px; letter-spacing: -0.5px;">
+                Nuestros Proyectos en Ejecución Industrial
+            </h3>
+
+            <!-- Contenedor del Slider -->
+            <div class="slider-container-box" style="position: relative; width: 100%; height: 450px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
+                
+                <!-- Diapositiva 1 -->
+                <div class="industrial-slide" style="display: block; width: 100%; height: 450px;">
+                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=1200" alt="Instalación Industrial 1" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- Diapositiva 2 -->
+                <div class="industrial-slide" style="display: none; width: 100%; height: 450px;">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200" alt="Planta Solar Techo Comercial" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- Diapositiva 3 -->
+                <div class="industrial-slide" style="display: none; width: 100%; height: 450px;">
+                    <img src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=1200" alt="Módulos Fotovoltaicos Empresa" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ÁREA DE ACCIÓN / CONSULTA -->
     <div class="action-area">
-        <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20requiero%20una%20reunión%20técnica%2520para%20un%20proyecto%20industrial." target="_blank" class="btn-industrial-cta">
+        <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20requiero%20una%20reunión%20técnica%20para%20un%20proyecto%20industrial." target="_blank" class="btn-industrial-cta">
             Agendar Consultoría Corporativa
         </a>
     </div>
@@ -432,8 +454,9 @@
         <p>&copy; 2026 EFISOLAR. Compromiso en Ingeniería, Eficiencia y Desarrollo Sostenible.</p>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT -->
+    <!-- LÓGICA JAVASCRIPT REFORZADA (MENÚ + CARRUSEL 3 SEG) -->
     <script>
+        // Control de Menú Hamburguesa
         const menuToggle = document.getElementById('menuToggle');
         const menuOverlay = document.getElementById('menuOverlay');
 
@@ -445,6 +468,24 @@
             menuToggle.classList.toggle('active');
             menuOverlay.classList.toggle('active');
         }
+
+        // Lógica del Carrusel Automático (Cada 3 segundos)
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.industrial-slide');
+
+        function showNextSlide() {
+            // Esconde la imagen actual
+            slides[currentSlideIndex].style.display = 'none';
+            
+            // Pasa a la siguiente (y vuelve a 0 si llega al final)
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            
+            // Muestra la nueva imagen
+            slides[currentSlideIndex].style.display = 'block';
+        }
+
+        // Ejecuta la función estrictamente cada 3000 milisegundos (3 segundos)
+        setInterval(showNextSlide, 3000);
     </script>
 </body>
 </html>
