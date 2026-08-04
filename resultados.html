@@ -398,7 +398,66 @@
             
             document.getElementById('btnEnviarWhatsApp').href = `https://wa.me/573021254480?text=${encodeURIComponent(mensajeWA)}`;
         });
+      <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>EFISOLAR</h4>
+                <p>Ingeniería fotovoltaica de alto rendimiento y transición energética eficiente para el Caribe colombiano.</p>
+            </div>
+            
+            <div class="footer-info" id="soporte">
+                <h5>Contacto & Soporte</h5>
+                <p>📱 WhatsApp: <a href="https://wa.me/message/LOCKIQKZ6YMXE1" target="_blank">+57 3138829769</a></p>
+                <p>✉️ Correo: <a href="mailto:efisolar1@gmail.com">efisolar1@gmail.com</a></p>
+                <p>📍 Cobertura Integral Región Caribe</p>
+            </div>
+
+            <div class="footer-platforms">
+                <h5>Nuestras Plataformas</h5>
+                <ul class="platform-list">
+                    <li><a href="https://www.facebook.com/share/14j9eLSAeHZ/" target="_blank">🔵 Facebook</a></li>
+                    <li><a href="https://www.instagram.com/efisolarcol?igsh=NmRqdnFsMG4wMzFi" target="_blank">📸 Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@efisolarcol?_r=1&_t=ZS-98acSLz4jUC" target="_blank">🎵 TikTok</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EFISOLAR. Todos los derechos reservados. Compromiso técnico y ambiental.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Control de Menú Hamburguesa
+        const menuToggle = document.getElementById('menuToggle');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        // Evento cambio de idioma
+        document.getElementById('langSelect').addEventListener('change', function() {
+            alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente a la plantilla premium.');
+        });
+
+        // Adaptador para redirección de simulación y cálculo
+        document.getElementById('formPremium').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const tipo = document.getElementById('tipo').value;
+            const consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
+            const facturaEquivalente = consumoKWH * 1000;
+
+            window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
+        });
     </script>
+
 
 </body>
 </html>
