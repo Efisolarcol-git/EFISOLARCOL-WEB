@@ -316,6 +316,96 @@
             .industrial-slide { height: 280px !important; }
             .slider-container-box { height: 280px !important; }
         }
+        /* ==========================================
+   ESTILOS CARRUSEL INDUSTRIAL (CUADRADO)
+   ========================================== */
+
+.seccion-carrusel-industrial {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.seccion-carrusel-industrial h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Contenedor principal que forma el cuadrado */
+.carrusel-container {
+  position: relative;
+  max-width: 450px; /* Tamaño del cuadrado en pantallas grandes */
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  background-color: #000; /* Fondo oscuro mientras carga */
+}
+
+/* Marco para forzar la proporción 1:1 (Cuadrado perfecto) */
+.carrusel-slide {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+}
+
+.carrusel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para llenar el cuadrado sin deformarla */
+  display: block;
+}
+
+/* Botones flotantes (Flechas) */
+.btn-carrusel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: none;
+  font-size: 22px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  z-index: 10;
+}
+
+.btn-carrusel:hover {
+  background-color: #f39c12; /* Color naranja EFISOLAR */
+}
+
+.btn-prev { left: 12px; }
+.btn-next { right: 12px; }
+
+/* Contenedor de Puntos Indicadores (Dots) */
+.puntos-container {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.punto-ind {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.punto-ind.activo {
+  background-color: #f39c12; /* Punto activo */
+  transform: scale(1.25);
+}
     </style>
 </head>
 <body>
@@ -411,6 +501,34 @@
             </div>
         </div>
     </section>
+    <!-- SECCIÓN CARRUSEL DE IMÁGENES INDUSTRIALES -->
+<section class="seccion-carrusel-industrial">
+  <div class="container">
+    <h2>Proyectos e Instalaciones Industriales ⚡</h2>
+
+    <!-- Contenedor del carrusel cuadrado -->
+    <div class="carrusel-container">
+      
+      <!-- Marco de la imagen (mantiene la forma cuadrada) -->
+      <div class="carrusel-slide">
+        <img id="imagen-carrusel-ind" src="img/industrial1.jpg" alt="Proyecto Solar Industrial EFISOLAR" loading="lazy">
+      </div>
+
+      <!-- Botones de navegación (Flechas) -->
+      <button type="button" class="btn-carrusel btn-prev" onclick="cambiarImagenInd(-1)">&#10094;</button>
+      <button type="button" class="btn-carrusel btn-next" onclick="cambiarImagenInd(1)">&#10095;</button>
+
+      <!-- Puntos indicadores de posición (Dots) -->
+      <div class="puntos-container">
+        <span class="punto-ind activo" onclick="irAImagenInd(0)"></span>
+        <span class="punto-ind" onclick="irAImagenInd(1)"></span>
+        <span class="punto-ind" onclick="irAImagenInd(2)"></span>
+        <span class="punto-ind" onclick="irAImagenInd(3)"></span>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- CARRUSEL AUTOMÁTICO DE PROYECTOS INDUSTRIALES -->
     <section style="max-width: 1050px; margin: 0 auto 30px; padding: 0 20px;">
@@ -444,7 +562,7 @@
 
     <!-- ÁREA DE ACCIÓN / CONSULTA -->
     <div class="action-area">
-        <a href="https://wa.me/573021254480?text=Hola%20EFISOLAR,%20requiero%20una%20reunión%20técnica%20para%20un%20proyecto%20industrial." target="_blank" class="btn-industrial-cta">
+        <a href="https://wa.me/573138829769" target="_blank" class="btn-industrial-cta">
             Cotizar sistema local o industrial
         </a>
     </div>
@@ -454,7 +572,7 @@
         <p>&copy; 2026 EFISOLAR. Compromiso en Ingeniería, Eficiencia y Desarrollo Sostenible.</p>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT REFORZADA (MENÚ + CARRUSEL 3 SEG) -->
+    <!-- LÓGICA JAVASCRIPT REFORZADA (MENÚ + CARRUSEL 2 SEG) -->
     <script>
         // Control de Menú Hamburguesa
         const menuToggle = document.getElementById('menuToggle');
@@ -469,7 +587,7 @@
             menuOverlay.classList.toggle('active');
         }
 
-        // Lógica del Carrusel Automático (Cada 3 segundos)
+        // Lógica del Carrusel Automático (Cada 2 segundos)
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.industrial-slide');
 
@@ -484,8 +602,8 @@
             slides[currentSlideIndex].style.display = 'block';
         }
 
-        // Ejecuta la función estrictamente cada 3000 milisegundos (3 segundos)
-        setInterval(showNextSlide, 3000);
+        // Ejecuta la función estrictamente cada 2000 milisegundos (2 segundos)
+        setInterval(showNextSlide, 2000);
       <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
@@ -545,6 +663,55 @@
             window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
         });
     </script>
+<!-- Fin de la sección del carrusel u otras secciones -->
+  </section>
+
+
+  <script>
+    const imagenesIndustriales = [
+      "img/industrial1.jpg",
+      "img/industrial2.jpg",
+    
+      "img/industrial4.jpg"
+    ];
+
+    let indiceInd = 0;
+
+    function cambiarImagenInd(direccion) {
+      indiceInd += direccion;
+
+      if (indiceInd >= imagenesIndustriales.length) {
+        indiceInd = 0;
+      } else if (indiceInd < 0) {
+        indiceInd = imagenesIndustriales.length - 1;
+      }
+
+      actualizarCarruselInd();
+    }
+
+    function irAImagenInd(index) {
+      indiceInd = index;
+      actualizarCarruselInd();
+    }
+
+    function actualizarCarruselInd() {
+      const imgElement = document.getElementById("imagen-carrusel-ind");
+      const puntos = document.querySelectorAll(".punto-ind");
+
+      if (imgElement) {
+        imgElement.src = imagenesIndustriales[indiceInd];
+      }
+
+      puntos.forEach((punto, index) => {
+        if (index === indiceInd) {
+          punto.classList.add("activo");
+        } else {
+          punto.classList.remove("activo");
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
+
