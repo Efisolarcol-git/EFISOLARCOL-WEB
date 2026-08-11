@@ -526,11 +526,7 @@
         <span class="punto-ind" onclick="irAImagenInd(3)"></span>
       </div>
 
-    </div>
-  </div>
-</section>
-
-    <!-- CARRUSEL AUTOMÁTICO DE PROYECTOS INDUSTRIALES -->
+          <!-- CARRUSEL AUTOMÁTICO DE PROYECTOS INDUSTRIALES -->
     <section style="max-width: 1050px; margin: 0 auto 30px; padding: 0 20px;">
         <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; padding: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); text-align: center;">
             
@@ -558,6 +554,13 @@
 
             </div>
         </div>
+        
+        
+    </div>
+  </div>
+</section>
+
+  
     </section>
 
     <!-- ÁREA DE ACCIÓN / CONSULTA -->
@@ -587,23 +590,7 @@
             menuOverlay.classList.toggle('active');
         }
 
-        // Lógica del Carrusel Automático (Cada 2 segundos)
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.industrial-slide');
-
-        function showNextSlide() {
-            // Esconde la imagen actual
-            slides[currentSlideIndex].style.display = 'none';
-            
-            // Pasa a la siguiente (y vuelve a 0 si llega al final)
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-            
-            // Muestra la nueva imagen
-            slides[currentSlideIndex].style.display = 'block';
-        }
-
-        // Ejecuta la función estrictamente cada 2000 milisegundos (2 segundos)
-        setInterval(showNextSlide, 2000);
+       
       <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
