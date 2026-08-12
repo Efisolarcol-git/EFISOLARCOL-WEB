@@ -326,13 +326,17 @@
             let consumoKwh = parseFloat(urlParams.get('consumo')) || 0;
             let factura = parseFloat(urlParams.get('factura')) || 0;
 
-            const tarifaKwh = 1000; // Tarifa estimada COP/kWh
+            // Tarifa unitaria fija por kWh en COP
+            const tarifaKwh = 880; 
 
-            // Si se pasa consumo pero no factura (o viceversa), se auto-calculan
+            // Si se pasa consumo pero no factura (o viceversa), se auto-calculan con $880/kWh
             if (consumoKwh > 0 && factura === 0) {
                 factura = consumoKwh * tarifaKwh;
             } else if (factura > 0 && consumoKwh === 0) {
                 consumoKwh = Math.round(factura / tarifaKwh);
+            } else if (consumoKwh > 0) {
+                // Forzar recalculo exacto con la tarifa de 880 COP/kWh
+                factura = consumoKwh * tarifaKwh;
             }
 
             // Ahorro proyectado estimado del 85%
@@ -365,7 +369,7 @@
             document.getElementById('valTipo').textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1);
 
             // Mensaje predeterminado para el enlace de WhatsApp
-            let mensajeWp = `Hola EFISOLAR, mi nombre es *${nombre}*. Realicé la simulación para mi proyecto (${tipo}) con un consumo de *${consumoKwh} kWh/mes* (Factura est.: ${formatCOP(factura)}).\n\nMe gustaría recibir la asesoría técnica y cotización oficial para el sistema de *${potenciaKwp} kWp*.`;
+            let mensajeWp = `Hola EFISOLAR, mi nombre es *${nombre}*. Realicé la simulación para mi proyecto (${tipo}) con un consumo de *${consumoKwh} kWh/mes* (Factura est.: ${formatCOP(factura)} a $880/kWh).\n\nMe gustaría recibir la asesoría técnica y cotización oficial para el sistema de *${potenciaKwp} kWp*.`;
             if (nit) {
                 mensajeWp += `\nDocumento/NIT: ${nit}`;
             }
