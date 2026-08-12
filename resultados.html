@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFISOLAR | Análisis de Viabilidad Energética</title>
+    <title>EFISOLAR | Resultados de Simulación</title>
     
-    <!-- Icono de la pestaña (Favicon) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="logo-oficial.jpg">
     
     <style>
-        /* --- ESTILO CLEAN, PREMIUM Y TECNOLÓGICO DE RESULTADOS --- */
         :root {
-            --primary: #f39c12;       /* Amarillo Solar Tesla */
+            --primary: #f39c12;       /* Amarillo Solar */
             --nature-green: #2ecc71;  /* Verde Eficiencia */
-            --text-dark: #1d1d1f;     /* Gris Carbón Apple */
+            --text-dark: #1d1d1f;
             --text-light: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.85); /* Vidrio Esmerilado Premium */
+            --glass-bg: rgba(255, 255, 255, 0.85);
             --glass-border: rgba(255, 255, 255, 0.4);
         }
 
@@ -31,9 +30,8 @@
             color: var(--text-dark);
             line-height: 1.5;
             background-color: #0f172a;
-            /* MISMO FONDO DE ALTA INGENIERÍA UNIFICADO */
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1920') no-repeat center center fixed;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1920') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -41,7 +39,7 @@
             justify-content: space-between;
         }
 
-        /* --- BARRA DE NAVEGACIÓN ULTRA TRANSPARENTE --- */
+        /* --- NAVEGACIÓN --- */
         nav {
             background: rgba(255, 255, 255, 0.4);
             padding: 15px 60px;
@@ -66,7 +64,6 @@
             color: var(--text-light);
             font-weight: 700;
             font-size: 1.25rem;
-            letter-spacing: -0.3px;
             line-height: 1.1;
         }
 
@@ -76,194 +73,172 @@
             font-weight: 500;
             display: block;
             margin-top: 2px;
-            letter-spacing: 0.5px;
         }
 
-        .nav-right-controls {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .lang-selector-container {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 6px 12px;
-            border-radius: 20px;
-            gap: 6px;
-        }
-
-        .lang-select {
-            background: transparent;
-            color: #ffffff;
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .lang-select option {
-            background: #1e293b;
-            color: #ffffff;
-        }
-
-        /* --- CONTENEDOR DE RESULTADOS (DISEÑO GLASSMORPHISM) --- */
-        .results-section {
-            padding: 60px 20px;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        /* --- CONTENEDOR RESULTADOS --- */
         .results-container {
-            max-width: 700px;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
             width: 100%;
+        }
+
+        .results-card {
             background: var(--glass-bg);
-            padding: 50px;
-            border-radius: 24px;
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            color: var(--text-dark);
         }
 
         .results-header {
             text-align: center;
-            margin-bottom: 35px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
             padding-bottom: 20px;
         }
 
         .results-header h1 {
-            font-size: 2rem;
-            color: var(--text-dark);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 8px;
         }
 
         .results-header p {
-            color: #6e6e73;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
+            color: #475569;
         }
 
-        /* --- GRILLA DE DATOS TÉCNICOS --- */
-        .data-grid {
+        /* --- METRICAS Y DATOS --- */
+        .metrics-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-box {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .metric-box.highlight {
+            background: rgba(46, 204, 113, 0.15);
+            border: 1px solid rgba(46, 204, 113, 0.4);
+        }
+
+        .metric-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .metric-box.highlight .metric-value {
+            color: #1e8449;
+        }
+
+        /* --- DETALLES TÉCNICOS --- */
+        .system-details {
+            background: rgba(15, 23, 42, 0.03);
+            border-radius: 16px;
+            padding: 25px;
             margin-bottom: 35px;
         }
 
-        .data-box {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 20px 25px;
-            border-radius: 14px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+        .system-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #0f172a;
         }
 
-        .data-box.full-width {
-            grid-column: span 2;
-            background: rgba(46, 204, 113, 0.1);
-            border: 1px solid rgba(46, 204, 113, 0.2);
+        .details-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
         }
 
-        .data-box span {
-            display: block;
-            font-size: 0.85rem;
-            color: #6e6e73;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-
-        .data-box .value {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .data-box.full-width .value {
-            color: #27ae60;
+        .details-list li {
+            font-size: 0.95rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* --- BOTONES DE ACCIÓN --- */
-        .action-area {
+        .action-buttons {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            text-align: center;
+            align-items: center;
         }
 
-        .btn-whatsapp-action {
-            display: block;
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             width: 100%;
-            padding: 16px;
-            background-color: #25d366;
+            max-width: 450px;
+            padding: 18px 30px;
+            background-color: var(--nature-green);
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: background-color 0.2s;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .btn-whatsapp-action:hover {
-            background-color: #1ebd59;
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            background-color: #27ae60;
         }
 
         .btn-back {
-            color: var(--text-dark);
+            color: #64748b;
             text-decoration: none;
             font-size: 0.95rem;
-            font-weight: 500;
-            transition: opacity 0.2s;
+            font-weight: 600;
+            transition: color 0.2s;
         }
 
         .btn-back:hover {
-            opacity: 0.7;
+            color: #0f172a;
         }
 
-        /* --- PIE DE PÁGINA --- */
+        /* PIE DE PÁGINA */
         footer {
-            background-color: rgba(15, 23, 42, 0.95);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 40px 20px 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.95);
+            color: var(--text-light);
+            padding: 20px;
             text-align: center;
             font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
             nav { padding: 15px 25px; }
-            .nav-links { display: none; }
-            .results-container { padding: 35px 20px; }
-            .data-grid { grid-template-columns: 1fr; }
-            .data-box.full-width { grid-column: auto; }
+            .results-card { padding: 25px 20px; }
+            .results-header h1 { font-size: 1.8rem; }
+            .metric-value { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -272,134 +247,115 @@
     <!-- BARRA DE NAVEGACIÓN -->
     <nav>
         <div class="logo-area">
-            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="60" style="height: auto; max-width: 60px; object-fit: contain; display: block; border-radius: 4px;">
+            <img src="logo-oficial.jpg" alt="Logo EFISOLAR" width="50" style="height: auto; border-radius: 4px;">
             <div class="logo-text">EFISOLAR <span>Ingeniería | Eficiencia</span></div>
-        </div>
-        
-        <div class="nav-right-controls">
-            <div class="lang-selector-container">
-                <span>🌐</span>
-                <select class="lang-select" id="langSelect">
-                    <option value="es">Español (ES)</option>
-                    <option value="en">English (EN)</option>
-                </select>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- SECCIÓN DINÁMICA DE RESULTADOS -->
-    <section class="results-section">
-        <div class="results-container">
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="results-container">
+        <div class="results-card">
+            
             <div class="results-header">
-                <h1>Estudio de Viabilidad Fotovoltaica</h1>
-                <p>Resultados preliminares generados bajo la radiación promedio de la región Caribe.</p>
+                <h1 id="greeting">Propuesta Estimada</h1>
+                <p>Análisis técnico-financiero preliminar para tu proyecto solar</p>
             </div>
 
-            <div class="data-grid">
-                <!-- Cliente -->
-                <div class="data-box">
-                    <span>Solicitante</span>
-                    <div class="value" id="resNombre">Usuario</div>
+            <!-- RESULTADOS FINANCIEROS Y TÉCNICOS -->
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="metric-title">Consumo Mensual</div>
+                    <div class="metric-value" id="valConsumo">0 kWh</div>
                 </div>
 
-                <!-- Tipo de Proyecto -->
-                <div class="data-box">
-                    <span>Tipo de Línea</span>
-                    <div class="value" id="resTipo">Residencial</div>
+                <div class="metric-box">
+                    <div class="metric-title">Factura Actual</div>
+                    <div class="metric-value" id="valFactura">$0</div>
                 </div>
 
-                <!-- Capacidad Calculada -->
-                <div class="data-box">
-                    <span>Potencia Estimada</span>
-                    <div class="value" id="resPotencia">0.00 kWp</div>
+                <div class="metric-box highlight">
+                    <div class="metric-title">Ahorro Mensual Est.</div>
+                    <div class="metric-value" id="valAhorro">$0</div>
                 </div>
 
-                <!-- Módulos Sugeridos -->
-                <div class="data-box">
-                    <span>Módulos Requeridos</span>
-                    <div class="value" id="resPaneles">0 Paneles</div>
-                </div>
-
-                <!-- Ahorro Proyectado -->
-                <div class="data-box full-width">
-                    <span>Ahorro Estimado Mensual</span>
-                    <div class="value" id="resAhorro">$ 0.00 COP</div>
+                <div class="metric-box">
+                    <div class="metric-title">Nueva Factura Est.</div>
+                    <div class="metric-value" id="valNuevaFactura">$0</div>
                 </div>
             </div>
 
-            <!-- Botones estratégicos -->
-            <div class="action-area">
-                <a href="#" id="btnEnviarWhatsApp" target="_blank" class="btn-whatsapp-action">
-                    Validar Ingeniería con un Especialista por WhatsApp
+            <!-- DETALLES DEL SISTEMA RECOMENDADO -->
+            <div class="system-details">
+                <h3>⚡ Sistema Solar Sugerido</h3>
+                <ul class="details-list">
+                    <li>☀️ <strong>Capacidad Recomendada:</strong> <span id="valPotencia">0</span> kWp</li>
+                    <li>📦 <strong>Número de Paneles:</strong> <span id="valPaneles">0</span> paneles (550W)</li>
+                    <li>🌱 <strong>Reducción CO2:</strong> <span id="valCo2">0</span> Ton/año</li>
+                    <li>🏭 <strong>Tipo de Proyecto:</strong> <span id="valTipo">Residencial</span></li>
+                </ul>
+            </div>
+
+            <!-- ACCIONES -->
+            <div class="action-buttons">
+                <a href="#" id="btnWp" target="_blank" class="btn-whatsapp">
+                    📱 Recibir Propuesta Oficial en WhatsApp
                 </a>
-                <a href="index.html" class="btn-back">← Volver al inicio</a>
+                <a href="index.html#simulador" class="btn-back">← Volver a calcular</a>
             </div>
-        </div>
-    </section>
 
-    <!-- PIE DE PÁGINA CORPORATIVO -->
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 EFISOLAR. Todos los derechos reservados. Análisis basado en simulaciones técnicas preliminares.</p>
+        <p>&copy; 2026 EFISOLAR. Compromiso en Ingeniería y Eficiencia Energética.</p>
     </footer>
 
-    <!-- PROCESAMIENTO JAVASCRIPT DIRECTO -->
+    <!-- LÓGICA DE CÁLCULO Y PROCESAMIENTO DE PARÁMETROS -->
     <script>
-        // Función para leer variables desde la URL
-        function getUrlParams() {
-            const params = {};
-            const search = window.location.search.substring(1);
-            if (search) {
-                const pairs = search.split("&");
-                for (let i = 0; i < pairs.length; i++) {
-                    const pair = pairs[i].split("=");
-                    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "");
-                }
-            }
-            return params;
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener parámetros de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            const nombre = urlParams.get('nombre') || 'Cliente';
+            const factura = parseFloat(urlParams.get('factura')) || 0;
+            const tipo = urlParams.get('tipo') || 'Residencial';
 
-        // Ejecución al cargar la página
-        window.addEventListener('DOMContentLoaded', () => {
-            const datos = getUrlParams();
+            // Parámetros de cálculo técnico/financiero
+            const tarifaKwh = 1000; // Valor promedio kWh en región Caribe
+            const porcentajeAhorro = 0.85; // Ahorro proyectado del 85%
             
-            // Recuperar campos o colocar por defecto
-            const nombre = datos.nombre || "Cliente Especial";
-            const tipo = datos.tipo || "Residencial";
-            // Convertimos la factura simulada (venía multiplicada por 1000 en el script del index)
-            const facturaEquivalente = parseFloat(datos.factura) || 0;
+            // Cálculos
+            const consumoKwh = factura > 0 ? Math.round(factura / tarifaKwh) : 0;
+            const ahorroMensual = Math.round(factura * porcentajeAhorro);
+            const nuevaFactura = Math.round(factura - ahorroMensual);
             
-            // Reconstruimos el consumo real en kWh basado en la factura recibida
-            const consumoKWH = facturaEquivalente / 1000;
+            // Cálculo del sistema (Generación promedio diaria ~3.8 kWh por kWp instalado)
+            const potenciaKwp = ((consumoKwh / 30) / 3.8).toFixed(2);
+            const numeroPaneles = Math.ceil((potenciaKwp * 1000) / 550);
+            const reduccionCo2 = (consumoKwh * 12 * 0.0004).toFixed(1);
 
-            /* --- OPERACIONES CON CRITERIO TÉCNICO (Constantes de Radiación Caribe) --- */
-            // 1. Potencia requerida aproximada (kWp) considerando radiación local
-            const potenciaCalculada = (consumoKWH / 30) / 4.8;
-            
-            // 2. Número de módulos asumiendo paneles industriales estándar de 550W (0.55 kW)
-            const numeroPaneles = Math.ceil(potenciaCalculada / 0.55);
-            
-            // 3. Proyección económica comercial (Ahorro del 85% de la factura)
-            const ahorroEstimado = facturaEquivalente * 0.85;
+            // Formateador de moneda (COP)
+            const formatCOP = (val) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(val);
 
-            // Inyección limpia de datos en el HTML
-            document.getElementById('resNombre').innerText = nombre;
-            document.getElementById('resTipo').innerText = tipo;
-            document.getElementById('resPotencia').innerText = potenciaCalculada.toFixed(2) + " kWp";
-            document.getElementById('resPaneles').innerText = numeroPaneles + " Módulos (550W)";
+            // Renderizado en la interfaz
+            document.getElementById('greeting').textContent = `¡Hola, ${nombre}!`;
+            document.getElementById('valConsumo').textContent = `${consumoKwh.toLocaleString('es-CO')} kWh`;
+            document.getElementById('valFactura').textContent = formatCOP(factura);
+            document.getElementById('valAhorro').textContent = formatCOP(ahorroMensual);
+            document.getElementById('valNuevaFactura').textContent = formatCOP(nuevaFactura);
             
-            // Formatear moneda de forma limpia para lectura
-            document.getElementById('resAhorro').innerText = "$ " + ahorroEstimado.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " COP";
+            document.getElementById('valPotencia').textContent = potenciaKwp;
+            document.getElementById('valPaneles').textContent = numeroPaneles;
+            document.getElementById('valCo2').textContent = reduccionCo2;
+            document.getElementById('valTipo').textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1);
 
-            // Estructuración del mensaje directo a WhatsApp con los datos calculados
-            const mensajeWA = `Hola EFISOLAR, mi nombre es ${nombre}. Acabo de realizar la simulación para un proyecto de tipo ${tipo}. Mi consumo aproximado es de ${consumoKWH.toFixed(0)} kWh/mes, lo que arrojó una planta estimada de ${potenciaCalculada.toFixed(2)} kWp (${numeroPaneles} paneles). Deseo agendar la revisión técnica formal.`;
+            // Generación de enlace dinámico a WhatsApp
+            const mensajeWp = `Hola EFISOLAR, mi nombre es *${nombre}*. Realicé la simulación para mi propiedad (${tipo}) con una factura de *${formatCOP(factura)}* (${consumoKwh} kWh/mes). Me gustaría recibir la asesoría y cotización oficial para el sistema de *${potenciaKwp} kWp*.`;
             
-            document.getElementById('btnEnviarWhatsApp').href = `https://wa.me/573021254480?text=${encodeURIComponent(mensajeWA)}`;
-        })>
+            const enlaceWp = `https://wa.me/573138829769?text=${encodeURIComponent(mensajeWp)}`;
+            document.getElementById('btnWp').href = enlaceWp;
+        });
     </script>
-
-
 </body>
 </html>
