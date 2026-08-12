@@ -269,7 +269,7 @@
                 </div>
 
                 <div class="metric-box">
-                    <div class="metric-title">Factura Actual</div>
+                    <div class="metric-title">Factura Estimada</div>
                     <div class="metric-value" id="valFactura">$0</div>
                 </div>
 
@@ -311,36 +311,50 @@
         <p>&copy; 2026 EFISOLAR. Compromiso en Ingeniería y Eficiencia Energética.</p>
     </footer>
 
-    <!-- LÓGICA DE CÁLCULO Y PROCESAMIENTO DE PARÁMETROS -->
+    <!-- LÓGICA DE PROCESAMIENTO Y RENDERIZADO -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Obtener parámetros de la URL
+            // Obtención de parámetros enviados desde la URL
             const urlParams = new URLSearchParams(window.location.search);
             
             const nombre = urlParams.get('nombre') || 'Cliente';
-            const factura = parseFloat(urlParams.get('factura')) || 0;
             const tipo = urlParams.get('tipo') || 'Residencial';
-
-            // Parámetros de cálculo técnico/financiero
-            const tarifaKwh = 1000; // Valor promedio kWh en región Caribe
-            const porcentajeAhorro = 0.85; // Ahorro proyectado del 85%
+            const celular = urlParams.get('celular') || '';
+            const nit = urlParams.get('nit') || '';
             
-            // Cálculos
-            const consumoKwh = factura > 0 ? Math.round(factura / tarifaKwh) : 0;
+            // Prioridad a 'consumo' y 'factura'
+            let consumoKwh = parseFloat(urlParams.get('consumo')) || 0;
+            let factura = parseFloat(urlParams.get('factura')) || 0;
+
+            const tarifaKwh = 1000; // Tarifa estimada COP/kWh
+
+            // Si se pasa consumo pero no factura (o viceversa), se auto-calculan
+            if (consumoKwh > 0 && factura === 0) {
+                factura = consumoKwh * tarifaKwh;
+            } else if (factura > 0 && consumoKwh === 0) {
+                consumoKwh = Math.round(factura / tarifaKwh);
+            }
+
+            // Ahorro proyectado estimado del 85%
+            const porcentajeAhorro = 0.85;
             const ahorroMensual = Math.round(factura * porcentajeAhorro);
             const nuevaFactura = Math.round(factura - ahorroMensual);
             
-            // Cálculo del sistema (Generación promedio diaria ~3.8 kWh por kWp instalado)
+            // Cálculos técnicos (Generación promedio de 3.8 kWh por kWp al día)
             const potenciaKwp = ((consumoKwh / 30) / 3.8).toFixed(2);
             const numeroPaneles = Math.ceil((potenciaKwp * 1000) / 550);
             const reduccionCo2 = (consumoKwh * 12 * 0.0004).toFixed(1);
 
-            // Formateador de moneda (COP)
-            const formatCOP = (val) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(val);
+            // Formateador de moneda colombiana (COP)
+            const formatCOP = (val) => new Intl.NumberFormat('es-CO', { 
+                style: 'currency', 
+                currency: 'COP', 
+                maximumFractionDigits: 0 
+            }).format(val);
 
-            // Renderizado en la interfaz
+            // Renderizado dinámico en la interfaz
             document.getElementById('greeting').textContent = `¡Hola, ${nombre}!`;
-            document.getElementById('valConsumo').textContent = `${consumoKwh.toLocaleString('es-CO')} kWh`;
+            document.getElementById('valConsumo').textContent = `${consumoKwh.toLocaleString('es-CO')} kWh/mes`;
             document.getElementById('valFactura').textContent = formatCOP(factura);
             document.getElementById('valAhorro').textContent = formatCOP(ahorroMensual);
             document.getElementById('valNuevaFactura').textContent = formatCOP(nuevaFactura);
@@ -350,9 +364,12 @@
             document.getElementById('valCo2').textContent = reduccionCo2;
             document.getElementById('valTipo').textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1);
 
-            // Generación de enlace dinámico a WhatsApp
-            const mensajeWp = `Hola EFISOLAR, mi nombre es *${nombre}*. Realicé la simulación para mi propiedad (${tipo}) con una factura de *${formatCOP(factura)}* (${consumoKwh} kWh/mes). Me gustaría recibir la asesoría y cotización oficial para el sistema de *${potenciaKwp} kWp*.`;
-            
+            // Mensaje predeterminado para el enlace de WhatsApp
+            let mensajeWp = `Hola EFISOLAR, mi nombre es *${nombre}*. Realicé la simulación para mi proyecto (${tipo}) con un consumo de *${consumoKwh} kWh/mes* (Factura est.: ${formatCOP(factura)}).\n\nMe gustaría recibir la asesoría técnica y cotización oficial para el sistema de *${potenciaKwp} kWp*.`;
+            if (nit) {
+                mensajeWp += `\nDocumento/NIT: ${nit}`;
+            }
+
             const enlaceWp = `https://wa.me/573138829769?text=${encodeURIComponent(mensajeWp)}`;
             document.getElementById('btnWp').href = enlaceWp;
         });
