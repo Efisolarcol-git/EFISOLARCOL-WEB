@@ -307,105 +307,142 @@
             background-color: #e67e22;
         }
 
+        /* --- ESTILOS CARRUSEL INDUSTRIAL (CUADRADO) --- */
+        .seccion-carrusel-industrial {
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .seccion-carrusel-industrial h2 {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .carrusel-container {
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background-color: #000;
+        }
+
+        .carrusel-slide {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+
+        .carrusel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .btn-carrusel {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            border: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            user-select: none;
+            z-index: 10;
+        }
+
+        .btn-carrusel:hover {
+            background-color: #f39c12;
+        }
+
+        .btn-prev { left: 12px; }
+        .btn-next { right: 12px; }
+
+        .puntos-container {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 6px 12px;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        .punto-ind {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .punto-ind.activo {
+            background-color: #f39c12;
+            transform: scale(1.25);
+        }
+
+        /* ESTILOS PIE DE PÁGINA */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            color: var(--text-light);
+            padding: 40px 20px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand h4, .footer-info h5, .footer-platforms h5 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .footer-info a, .platform-list a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-info a:hover, .platform-list a:hover {
+            color: var(--primary);
+        }
+
+        .platform-list {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav { padding: 15px 25px; }
             .nav-links { display: none; }
             .hero-industrial h1 { font-size: 2.2rem; }
             .law-incentives-box { padding: 30px 20px; }
-            .industrial-slide { height: 280px !important; }
-            .slider-container-box { height: 280px !important; }
         }
-        /* ==========================================
-   ESTILOS CARRUSEL INDUSTRIAL (CUADRADO)
-   ========================================== */
-
-.seccion-carrusel-industrial {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.seccion-carrusel-industrial h2 {
-  margin-bottom: 20px;
-  color: #2c3e50;
-}
-
-/* Contenedor principal que forma el cuadrado */
-.carrusel-container {
-  position: relative;
-  max-width: 450px; /* Tamaño del cuadrado en pantallas grandes */
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  background-color: #000; /* Fondo oscuro mientras carga */
-}
-
-/* Marco para forzar la proporción 1:1 (Cuadrado perfecto) */
-.carrusel-slide {
-  width: 100%;
-  aspect-ratio: 1 / 1; 
-}
-
-.carrusel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recorta la imagen para llenar el cuadrado sin deformarla */
-  display: block;
-}
-
-/* Botones flotantes (Flechas) */
-.btn-carrusel {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  border: none;
-  font-size: 22px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-  user-select: none;
-  z-index: 10;
-}
-
-.btn-carrusel:hover {
-  background-color: #f39c12; /* Color naranja EFISOLAR */
-}
-
-.btn-prev { left: 12px; }
-.btn-next { right: 12px; }
-
-/* Contenedor de Puntos Indicadores (Dots) */
-.puntos-container {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 6px 12px;
-  border-radius: 20px;
-  z-index: 10;
-}
-
-.punto-ind {
-  width: 12px;
-  height: 12px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.punto-ind.activo {
-  background-color: #f39c12; /* Punto activo */
-  transform: scale(1.25);
-}
     </style>
 </head>
 <body>
@@ -431,7 +468,7 @@
         </div>
     </nav>
 
-    <!-- MENÚ LATERAL DESPLEGABLE CON ONCLICK -->
+    <!-- MENÚ LATERAL DESPLEGABLE -->
     <div class="nav-menu-overlay" id="menuOverlay">
         <a href="index.html" onclick="toggleMenu()">Inicio</a>
         <a href="index.html#simulador" onclick="toggleMenu()">Simulador</a>
@@ -501,60 +538,29 @@
             </div>
         </div>
     </section>
+
     <!-- SECCIÓN CARRUSEL DE IMÁGENES INDUSTRIALES -->
+    <section class="seccion-carrusel-industrial">
+        <h2>Nuestros Proyectos en Ejecución Industrial ⚡</h2>
 
-    <!-- Contenedor del carrusel cuadrado -->
-    <div class="carrusel-container">
-        
-
-      <!-- Botones de navegación (Flechas) -->
-      <button type="button" class="btn-carrusel btn-prev" onclick="SiguienteImagenInd(-1)" target="_blank">&#10094;</button>
-      <button type="button" class="btn-carrusel btn-next" onclick="SiguienteImagenInd(1)" target="_blank">&#10095;</button>
-
-      <!-- Puntos indicadores de posición (Dots) -->
-      <div class="puntos-container">
-        <span class="punto-ind activo" onclick="irAImagenInd(0)"></span>
-        <span class="punto-ind" onclick="irAImagenInd(1)"></span>
-        <span class="punto-ind" onclick="irAImagenInd(2)"></span>
-        <span class="punto-ind" onclick="irAImagenInd(3)"></span>
-      </div>
-
-          <!-- CARRUSEL AUTOMÁTICO DE PROYECTOS INDUSTRIALES -->
-    <section style="max-width: 1050px; margin: 0 auto 30px; padding: 0 20px;">
-        <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; padding: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); text-align: center;">
-            
-            <h3 style="font-size: 1.6rem; color: var(--text-dark); font-weight: 700; margin-bottom: 22px; letter-spacing: -0.5px;">
-                Nuestros Proyectos en Ejecución Industrial
-            </h3>
-
-            <!-- Contenedor del Slider -->
-            <div class="slider-container-box" style="position: relative; width: 100%; height: 450px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
-             
-
-                <!-- Diapositiva 1 -->
-                <div class="industrial-slide" style="display: none; width: 100%; height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200" alt="Planta Solar Techo Comercial" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                 <!-- Diapositiva 2 -->
-                <div class="industrial-slide" style="display: block; width: 100%; height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=1200" alt="Instalación Industrial 1" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-
-                <!-- Diapositiva 3 -->
-                <div class="industrial-slide" style="display: none; width: 100%; height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=1200" alt="Módulos Fotovoltaicos Empresa" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-
+        <!-- Contenedor del carrusel cuadrado -->
+        <div class="carrusel-container">
+            <!-- Imagen Principal -->
+            <div class="carrusel-slide">
+                <img id="imagen-carrusel-ind" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200" alt="Proyecto Solar Industrial EFISOLAR">
             </div>
-        </div>    
-              
-        
-        
-    </div>
-  </div>
-</section>
 
-  
+            <!-- Botones de navegación -->
+            <button type="button" class="btn-carrusel btn-prev" onclick="cambiarImagenInd(-1)">&#10094;</button>
+            <button type="button" class="btn-carrusel btn-next" onclick="cambiarImagenInd(1)">&#10095;</button>
+
+            <!-- Puntos indicadores (Dots) -->
+            <div class="puntos-container">
+                <span class="punto-ind activo" onclick="irAImagenInd(0)"></span>
+                <span class="punto-ind" onclick="irAImagenInd(1)"></span>
+                <span class="punto-ind" onclick="irAImagenInd(2)"></span>
+            </div>
+        </div>
     </section>
 
     <!-- ÁREA DE ACCIÓN / CONSULTA -->
@@ -565,27 +571,7 @@
     </div>
 
     <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>&copy; 2026 EFISOLAR. Compromiso en Ingeniería, Eficiencia y Desarrollo Sostenible.</p>
-    </footer>
-
-    <!-- LÓGICA JAVASCRIPT REFORZADA (MENÚ + CARRUSEL 2 SEG) -->
-    <script>
-        // Control de Menú Hamburguesa
-        const menuToggle = document.getElementById('menuToggle');
-        const menuOverlay = document.getElementById('menuOverlay');
-
-        menuToggle.addEventListener('click', () => {
-            toggleMenu();
-        });
-
-        function toggleMenu() {
-            menuToggle.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-        }
-
-       
-      <footer id="contacto">
+    <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
                 <h4>EFISOLAR</h4>
@@ -614,92 +600,63 @@
         </div>
     </footer>
 
+    <!-- LÓGICA JAVASCRIPT UNIFICADA Y CORREGIDA -->
     <script>
         // Control de Menú Hamburguesa
         const menuToggle = document.getElementById('menuToggle');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        menuToggle.addEventListener('click', () => {
-            toggleMenu();
-        });
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMenu);
+        }
 
         function toggleMenu() {
             menuToggle.classList.toggle('active');
             menuOverlay.classList.toggle('active');
         }
 
-        // Evento cambio de idioma
-        document.getElementById('langSelect').addEventListener('change', function() {
-            alert('Función de traducción comercial para idioma (' + this.value.toUpperCase() + ') vinculada exitosamente a la plantilla premium.');
-        });
+        // Lógica del Carrusel de Imágenes
+        const imagenesIndustriales = [
+            "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200",
+            "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=1200",
+            "https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=1200"
+        ];
 
-        // Adaptador para redirección de simulación y cálculo
-        document.getElementById('formPremium').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const tipo = document.getElementById('tipo').value;
-            const consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
-            const facturaEquivalente = consumoKWH * 1000;
+        let indiceInd = 0;
 
-            window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
-        });
-    </script>
-<!-- Fin de la sección del carrusel u otras secciones -->
-  </section>
+        function cambiarImagenInd(direccion) {
+            indiceInd += direccion;
 
+            if (indiceInd >= imagenesIndustriales.length) {
+                indiceInd = 0;
+            } else if (indiceInd < 0) {
+                indiceInd = imagenesIndustriales.length - 1;
+            }
 
-  <script>
-    const imagenesIndustriales = [
-      
-       <div class="industrial-slide" style="display: none; width: 100%; height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200" alt="Planta Solar Techo Comercial" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-         <div class="industrial-slide" style="display: block; width: 100%; height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=1200" alt="Instalación Industrial 1" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-       <div class="industrial-slide" style="display: none; width: 100%; height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=1200" alt="Módulos Fotovoltaicos Empresa" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-
-    ];
-
-    let indiceInd = 0;
-
-    function cambiarImagenInd(direccion) {
-      indiceInd += direccion;
-
-      if (indiceInd >= imagenesIndustriales.length) {
-        indiceInd = 0;
-      } else if (indiceInd < 0) {
-        indiceInd = imagenesIndustriales.length - 1;
-      }
-
-      actualizarCarruselInd();
-    }
-
-    function irAImagenInd(index) {
-      indiceInd = index;
-      actualizarCarruselInd();
-    }
-
-    function actualizarCarruselInd() {
-      const imgElement = document.getElementById("imagen-carrusel-ind");
-      const puntos = document.querySelectorAll(".punto-ind");
-
-      if (imgElement) {
-        imgElement.src = imagenesIndustriales[indiceInd];
-      }
-
-      puntos.forEach((punto, index) => {
-        if (index === indiceInd) {
-          punto.classList.add("activo");
-        } else {
-          punto.classList.remove("activo");
+            actualizarCarruselInd();
         }
-      });
-    }
-  </script>
 
+        function irAImagenInd(index) {
+            indiceInd = index;
+            actualizarCarruselInd();
+        }
+
+        function actualizarCarruselInd() {
+            const imgElement = document.getElementById("imagen-carrusel-ind");
+            const puntos = document.querySelectorAll(".punto-ind");
+
+            if (imgElement) {
+                imgElement.src = imagenesIndustriales[indiceInd];
+            }
+
+            puntos.forEach((punto, index) => {
+                if (index === indiceInd) {
+                    punto.classList.add("activo");
+                } else {
+                    punto.classList.remove("activo");
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
