@@ -672,7 +672,7 @@
         <div class="benefit-info-box">
             <h2>Por qué dar el salto solar hoy</h2>
             <p>La matriz energética tradicional afronta retos tarifarios críticos, especialmente en la costa norte. Instalar módulos fotovoltaicos no es solo una acción ambiental; es una decisión financiera estratégica que congela tus costos de operación y blinda tu capital.</p>
-            <p>A través de la integración de inversores inteligentes y paneles de última generación monocristalinos, convertimos tus zonas descubiertas en activos altamente rentables.</p>
+            <p>A través de la integración de inversores inteligentes y paneles de última generación monocristalinos, convertimos tus zonas descubiertas en activos highly rentables.</p>
         </div>
         <div class="benefit-info-box">
             <h2>Retorno de Inversión Tecnológico</h2>
@@ -717,9 +717,15 @@
                     </div>
                 </div>
 
-                <div class="form-group full-width">
+                <div class="form-group full-width" style="margin-bottom: 15px;">
                     <label for="consumo">Consumo Mensual Promedio (kWh por mes)</label>
-                    <input type="number" id="consumo" name="consumo" placeholder="Ej. 480" min="1" required>
+                    <input type="number" id="consumo" name="consumo" placeholder="Ej. 500" min="1">
+                </div>
+
+                <div class="form-group full-width" style="margin-bottom: 20px;">
+                    <label for="factura">O el Valor de su Factura Mensual ($ COP)</label>
+                    <input type="number" id="factura" name="factura" placeholder="Ej. 440000">
+                    <small style="color: #6e6e73; font-size: 0.8rem; display: block; margin-top: 4px;">* Calculado sobre una tarifa estimada de <strong>$880 COP por kWh</strong>.</small>
                 </div>
 
                 <button type="submit" class="btn-sim-submit">Calcular rendimiento del proyecto</button>
@@ -777,10 +783,28 @@
             e.preventDefault();
             const nombre = document.getElementById('nombre').value;
             const tipo = document.getElementById('tipo').value;
-            const consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
-            const facturaEquivalente = consumoKWH * 1000;
+            const tarifaKwh = 880; // Tarifa fija $880 COP por kWh
 
-            window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaEquivalente}&tipo=${tipo}`;
+            let consumoKWH = parseFloat(document.getElementById('consumo').value) || 0;
+            let facturaValor = parseFloat(document.getElementById('factura').value) || 0;
+
+            // Si el usuario ingresa factura pero no consumo
+            if (facturaValor > 0 && consumoKWH === 0) {
+                consumoKWH = Math.round(facturaValor / tarifaKwh);
+            } 
+            // Si ingresa consumo, calculamos el costo equivalente en COP
+            else if (consumoKWH > 0 && facturaValor === 0) {
+                facturaValor = Math.round(consumoKWH * tarifaKwh);
+            }
+
+            // Validación si ambos están vacíos
+            if (consumoKWH === 0 && facturaValor === 0) {
+                alert("Por favor ingresa tu consumo en kWh o el valor de tu factura mensual.");
+                return;
+            }
+
+            // Redirección con la factura en pesos $ COP corregida
+            window.location.href = `resultados.html?nombre=${encodeURIComponent(nombre)}&factura=${facturaValor}&consumo=${consumoKWH}&tipo=${tipo}`;
         });
     </script>
 
