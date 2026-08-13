@@ -347,6 +347,69 @@
             opacity: 0.8;
         }
 
+        /* --- NUEVA SECCIÓN DE SERVICIOS --- */
+        .services-section {
+            max-width: 1050px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .services-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-light);
+            font-weight: 700;
+            letter-spacing: -0.8px;
+        }
+
+        .services-header h2 span {
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 30px 25px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
         /* --- SECCIÓN EXPANSIBLE DE BENEFICIOS DETALLADOS --- */
         .detailed-benefits {
             max-width: 1050px;
@@ -585,6 +648,7 @@
         <div class="nav-right-controls">
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#simulador">Simulador</a></li>
             </ul>
 
@@ -599,6 +663,7 @@
     <!-- MENÚ HAMBURGUESA LATERAL -->
     <div class="nav-menu-overlay" id="menuOverlay">
         <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+        <a href="#servicios" onclick="toggleMenu()">Servicios</a>
         <a href="#simulador" onclick="toggleMenu()">Simulador</a>
         <a href="#soporte" onclick="toggleMenu()">Soporte</a>
         <a href="#contacto" onclick="toggleMenu()">Contáctanos</a>
@@ -667,12 +732,46 @@
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN DE SERVICIOS -->
+    <section class="services-section" id="servicios">
+        <div class="services-header">
+            <h2>Nuestros Servicios <span>Especializados</span></h2>
+            <p style="color: rgba(255,255,255,0.8); margin-top: 8px;">Soluciones integrales de ingeniería fotovoltaica de inicio a fin.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">☀️</span>
+                <h4>Diseño e Instalación EPC</h4>
+                <p>Desarrollamos proyectos llave en mano desde el análisis preliminar, ingeniería de detalle hasta el montaje técnico certificado de la planta solar.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-icon">⚡</span>
+                <h4>Auditoría y Eficiencia Energética</h4>
+                <p>Analizamos la curva de carga eléctrica de tu infraestructura para detectar puntos de pérdida e implementar planes de optimización de consumo.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-icon">🛠️</span>
+                <h4>Mantenimiento Preventivo y Correctivo</h4>
+                <p>Planes de operación, limpieza técnica de módulos fotovoltaicos, revisión de inversores y mantenimiento integral para garantizar máxima generación.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-icon">📜</span>
+                <h4>Gestión de Trámites y Legalización</h4>
+                <p>Nos encargamos del proceso ante el operador de red (OR) local, certificación RETIE y postulación a los beneficios tributarios de la Ley 1715.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- BENEFICIOS DETALLADOS -->
     <section class="detailed-benefits">
         <div class="benefit-info-box">
             <h2>Por qué dar el salto solar hoy</h2>
             <p>La matriz energética tradicional afronta retos tarifarios críticos, especialmente en la costa norte. Instalar módulos fotovoltaicos no es solo una acción ambiental; es una decisión financiera estratégica que congela tus costos de operación y blinda tu capital.</p>
-            <p>A través de la integración de inversores inteligentes y paneles de última generación monocristalinos, convertimos tus zonas descubiertas en activos highly rentables.</p>
+            <p>A través de la integración de inversores inteligentes y paneles de última generación monocristalinos, convertimos tus zonas descubiertas en activos altamente rentables.</p>
         </div>
         <div class="benefit-info-box">
             <h2>Retorno de Inversión Tecnológico</h2>
